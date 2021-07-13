@@ -6,6 +6,7 @@ class ThemeNotifier with ChangeNotifier {
   final darkTheme = ThemeData(
     primarySwatch: Colors.grey,
     primaryColor: Colors.black,
+    fontFamily: 'Poppins',
     brightness: Brightness.dark,
     backgroundColor: const Color(0xFF212121),
     accentColor: Colors.white,
@@ -15,10 +16,11 @@ class ThemeNotifier with ChangeNotifier {
 
   final lightTheme = ThemeData(
     primarySwatch: Colors.blue,
-    primaryColor: Colors.blue,
+    primaryColor: const Color(0xFF1C6AFE),
     brightness: Brightness.light,
     backgroundColor: const Color(0xFFE5E5E5),
     accentColor: Colors.black,
+    fontFamily: 'Poppins',
     accentIconTheme: IconThemeData(color: Colors.white),
     dividerColor: Colors.white54,
   );
