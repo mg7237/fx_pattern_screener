@@ -17,6 +17,7 @@ dependencies:
   connectivity_plus: ^1.0.5
   shared_preferences: ^2.0.6
   provider: ^5.0.0
+  candlesticks: ^0.5.0
 
 dev_dependencies:
   flutter_test:
@@ -26,8 +27,9 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/icon/
+    - assets/icons/
     - assets/flags/
+    - assets/patterns/
 
   fonts:
     - family: Poppins

@@ -21,6 +21,7 @@ class ThemeNotifier with ChangeNotifier {
     backgroundColor: const Color(0xFFE5E5E5),
     accentColor: Colors.black,
     fontFamily: 'Poppins',
+    scaffoldBackgroundColor: Color(0xFFF6F8FB),
     accentIconTheme: IconThemeData(color: Colors.white),
     dividerColor: Colors.white54,
   );
