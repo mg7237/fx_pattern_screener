@@ -6,6 +6,7 @@ import 'package:fx_screener/widgets/select_duration.dart';
 import 'package:fx_screener/widgets/select_sort.dart';
 import 'package:fx_screener/screens/add_favorite.dart';
 import 'package:fx_screener/widgets/select_asset.dart';
+import 'package:fx_screener/screens/drawer.dart';
 
 class Screener extends StatefulWidget {
   @override
@@ -189,7 +190,7 @@ class _ScreenerState extends State<Screener> {
                                   image: AssetImage('assets/icons/menu.png')),
                               onTap: () => Scaffold.of(context).openDrawer())),
                 )),
-            drawer: MyDrawer(),
+            drawer: AppDrawer(),
             body: Container(
                 // color: backGroundColor,
                 child: ListView.separated(

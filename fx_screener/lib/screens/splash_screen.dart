@@ -55,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen> {
       key: scaffoldState,
       body: new Center(
         child:
-            Hero(tag: "logo", child: Image.asset("assets/icon/app_logo.png")),
+            Hero(tag: "logo", child: Image.asset("assets/icons/app_logo.png")),
       ),
     );
   }

@@ -18,6 +18,8 @@ dependencies:
   shared_preferences: ^2.0.6
   provider: ^5.0.0
   candlesticks: ^0.5.0
+  webview_flutter: ^2.0.10
+  convex_bottom_bar: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -32,6 +34,10 @@ flutter:
     - assets/patterns/
 
   fonts:
+    - family: BottomIcons
+      fonts:
+        - asset: assets/fonts/BottomIcons.ttf
+
     - family: Poppins
       fonts:
         - asset: assets/fonts/Poppins-Black.ttf
