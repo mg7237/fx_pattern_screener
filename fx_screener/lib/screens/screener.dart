@@ -3,7 +3,6 @@ import 'package:fx_screener/util/constants.dart';
 import 'package:fx_screener/models/currency_pair.dart';
 import 'package:fx_screener/widgets/select_duration.dart';
 import 'package:fx_screener/widgets/select_sort.dart';
-import 'package:fx_screener/screens/add_favorite.dart';
 import 'package:fx_screener/widgets/select_asset.dart';
 import 'package:fx_screener/widgets/drawer.dart';
 
@@ -13,8 +12,6 @@ class Screener extends StatefulWidget {
 }
 
 class _ScreenerState extends State<Screener> {
-  String _title = 'Screener';
-  int _currentIndex = 0;
   late List<CurrencyPairData> _ccyPair;
 
   @override
@@ -23,22 +20,20 @@ class _ScreenerState extends State<Screener> {
     _ccyPair = getCurrencyPairData();
   }
 
-  String _selectedAsset = '';
-
   void _selectAssetClass() {
     showDialog(
         context: context,
         builder: (_) {
           return AlertDialog(
             elevation: 10,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20.0))),
             content: SelectAsset(assetSelected: _assetClassSelected),
           );
         });
   }
 
-  void _assetClassSelected(String assetClass) {
-    _selectedAsset = assetClass;
-  }
+  void _assetClassSelected(int index) {}
 
   void _selectDuration() {
     showDialog(
@@ -46,6 +41,8 @@ class _ScreenerState extends State<Screener> {
         builder: (_) {
           return AlertDialog(
             elevation: 10,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20.0))),
             content: SelectDuration(durationSelected: _durationSelected),
           );
         });
@@ -57,6 +54,8 @@ class _ScreenerState extends State<Screener> {
         builder: (_) {
           return AlertDialog(
             elevation: 10,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20.0))),
             content: SelectSort(sortSelected: _sortSelected),
           );
         });
@@ -66,11 +65,6 @@ class _ScreenerState extends State<Screener> {
   void _durationSelected(int index) {}
 
   void _sortSelected(int index) {}
-
-  void _addFavorite() {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => AddFavorite()));
-  }
 
   Widget buildCurrencyPairList(BuildContext context, int listIndex) {
     return Padding(

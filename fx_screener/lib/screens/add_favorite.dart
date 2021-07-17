@@ -13,22 +13,21 @@ class _AddFavoriteState extends State<AddFavorite> {
   TextEditingController _searchController = TextEditingController();
   late Map<String, Currency> _ccyData;
   late List<CurrencyPairData> _ccyPairData;
-  String _selectedAsset = '';
 
   void _selectAssetClass() {
     showDialog(
         context: context,
         builder: (_) {
           return AlertDialog(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20.0))),
             elevation: 10,
             content: SelectAsset(assetSelected: _assetClassSelected),
           );
         });
   }
 
-  void _assetClassSelected(String assetClass) {
-    _selectedAsset = assetClass;
-  }
+  void _assetClassSelected(int index) {}
 
   @override
   void initState() {

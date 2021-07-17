@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fx_screener/util/constants.dart';
 
 class SelectSort extends StatelessWidget {
   const SelectSort({Key? key, required this.sortSelected}) : super(key: key);
@@ -17,11 +16,14 @@ class SelectSort extends StatelessWidget {
         children: [
           Container(
             height: 40,
-            color: Theme.of(context).primaryColor,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Theme.of(context).scaffoldBackgroundColor,
+            ),
             child: Center(
               child: Text('Sort By',
                   style: TextStyle(
-                      color: Colors.white,
+                      color: Theme.of(context).primaryColor,
                       fontSize: 18,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.bold)),
@@ -36,14 +38,16 @@ class SelectSort extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(10)),
-                      child: InkWell(
-                        onTap: () {
-                          sortSelected;
-                          Navigator.pop(context);
-                        },
-                        child: Text(SORT_LIST[index],
-                            style:
-                                TextStyle(fontSize: 16, fontFamily: 'Poppins')),
+                      child: Center(
+                        child: InkWell(
+                          onTap: () {
+                            sortSelected(index);
+                            Navigator.pop(context);
+                          },
+                          child: Text(SORT_LIST[index],
+                              style: TextStyle(
+                                  fontSize: 16, fontFamily: 'Poppins')),
+                        ),
                       ));
                 },
                 separatorBuilder: (BuildContext context, int index) {

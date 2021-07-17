@@ -91,7 +91,7 @@ List<String> menuname = [
 ];
 double totalrate = 10;
 String fcmtoken = "";
-List<bool> notification_time = [
+List<bool> notificationTime = [
   false,
   true,
   false,
@@ -112,7 +112,7 @@ List<bool> notification_time = [
   false,
   false,
 ];
-List<String> s_w_times = [
+List<String> swTimes = [
   '',
   '',
   '',
@@ -133,5 +133,5 @@ List<String> s_w_times = [
   '',
   '',
 ];
-var s_w_data = null;
+var swData;
 bool openFromNotification = false;

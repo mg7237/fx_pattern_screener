@@ -3,7 +3,7 @@ class CurrencyPairData {
   late String currencyTwo;
   DateTime updateTime = DateTime.now();
 
-  CurrencyPairData({required this.currencyOne, required this.currencyTwo}) {}
+  CurrencyPairData({required this.currencyOne, required this.currencyTwo});
 }
 
 class Currency {

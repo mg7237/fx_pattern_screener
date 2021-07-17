@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:fx_screener/util/preference_connector.dart';
 import 'package:fx_screener/util/constants.dart';
-import 'package:fx_screener/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:fx_screener/util/globals.dart' as globals;
 

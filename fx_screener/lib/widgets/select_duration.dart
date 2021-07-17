@@ -10,18 +10,20 @@ class SelectDuration extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(12.0),
-      color: Theme.of(context).scaffoldBackgroundColor,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: Theme.of(context).scaffoldBackgroundColor,
+      ),
       height: 300,
       width: 200,
       child: Column(
         children: [
           Container(
             height: 40,
-            color: Theme.of(context).primaryColor,
             child: Center(
               child: Text('Timeframe',
                   style: TextStyle(
-                      color: Colors.white,
+                      color: Theme.of(context).primaryColor,
                       fontSize: 18,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.bold)),
@@ -36,14 +38,16 @@ class SelectDuration extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(10)),
-                      child: InkWell(
-                          onTap: () {
-                            durationSelected(index);
-                            Navigator.pop(context);
-                          },
-                          child: Text(DURATION_LIST[index],
-                              style: TextStyle(
-                                  fontSize: 16, fontFamily: 'Poppins'))));
+                      child: Center(
+                        child: InkWell(
+                            onTap: () {
+                              durationSelected(index);
+                              Navigator.pop(context);
+                            },
+                            child: Text(DURATION_LIST[index],
+                                style: TextStyle(
+                                    fontSize: 16, fontFamily: 'Poppins'))),
+                      ));
                 },
                 separatorBuilder: (BuildContext context, int index) {
                   return SizedBox(

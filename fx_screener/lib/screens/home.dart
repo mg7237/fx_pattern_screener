@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fx_screener/screens/screener.dart';
-import 'package:fx_screener/models/currency_pair.dart';
 import 'package:fx_screener/screens/add_favorite.dart';
 import 'package:fx_screener/screens/pattern.dart';
 import 'package:fx_screener/screens/chart.dart';
@@ -13,9 +12,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String _title = 'Screener';
   int _currentIndex = 0;
-  late List<CurrencyPairData> _ccyPair;
 
   final pageController = PageController();
   List<Widget> _children = [];
@@ -69,24 +66,28 @@ class _HomePageState extends State<HomePage> {
                   TabItem(
                       title: 'Screener',
                       icon: Icon(BottomIcons.fi_rr_crown,
+                          size: (_currentIndex == 0) ? 30 : 25,
                           color: (_currentIndex == 0)
                               ? Theme.of(context).primaryColor
                               : Color(0xff868A9A))),
                   TabItem(
                       title: 'Chart',
                       icon: Icon(BottomIcons.fi_rr_stats,
+                          size: (_currentIndex == 1) ? 30 : 25,
                           color: (_currentIndex == 1)
                               ? Theme.of(context).primaryColor
                               : Color(0xff868A9A))),
                   TabItem(
                       title: 'Pattern',
                       icon: Icon(BottomIcons.fi_rr_pulse,
+                          size: (_currentIndex == 2) ? 30 : 25,
                           color: (_currentIndex == 2)
                               ? Theme.of(context).primaryColor
                               : Color(0xff868A9A))),
                   TabItem(
                       title: 'Favorite',
                       icon: Icon(BottomIcons.fi_rr_star,
+                          size: (_currentIndex == 3) ? 30 : 25,
                           color: (_currentIndex == 3)
                               ? Theme.of(context).primaryColor
                               : Color(0xff868A9A)))

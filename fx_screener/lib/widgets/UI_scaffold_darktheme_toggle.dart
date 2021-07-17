@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fx_screener/util/constants.dart';
 import 'package:fx_screener/util/globals.dart' as globals;
 import 'package:provider/provider.dart';
 import 'package:fx_screener/providers/theme_manager.dart';

@@ -219,17 +219,17 @@ class _AppDrawerState extends State<AppDrawer> {
             //title
             GestureDetector(
               onTap: () {
-                if (notification_time[0] == true)
+                if (notificationTime[0] == true)
                   for (int i = 1; i < 11; i++) {
                     setState(() {
-                      notification_time[0] = false;
-                      notification_time[i] = false;
-                      Map<String, String> register_data = {
+                      notificationTime[0] = false;
+                      notificationTime[i] = false;
+                      Map<String, String> registerData = {
                         "register_token": fcmtoken,
                         "time": i.toString(),
                         'enable': "0"
                       };
-                      // ApiHelper.postRegister(register_data);
+                      // ApiHelper.postRegister(registerData);
                       // Datafilemanage.save_notification_time();
                     });
                   }
@@ -256,19 +256,19 @@ class _AppDrawerState extends State<AppDrawer> {
                     Positioned(
                         right: 20,
                         child: Switch(
-                          value: notification_time[0],
+                          value: notificationTime[0],
                           onChanged: (value) {
                             if (value == false)
                               for (int i = 1; i < 11; i++) {
                                 setState(() {
-                                  notification_time[0] = false;
-                                  notification_time[i] = false;
-                                  Map<String, String> register_data = {
+                                  notificationTime[0] = false;
+                                  notificationTime[i] = false;
+                                  Map<String, String> registerData = {
                                     "register_token": fcmtoken,
                                     "time": i.toString(),
                                     'enable': "0"
                                   };
-                                  // ApiHelper.postRegister(register_data);
+                                  // ApiHelper.postRegister(registerData);
                                   // Datafilemanage.save_notification_time();
                                 });
                               }
@@ -285,31 +285,31 @@ class _AppDrawerState extends State<AppDrawer> {
             for (int i = 1; i < 11; i++)
               GestureDetector(
                 onTap: () {
-                  notification_time[i] = !notification_time[i];
-                  if (notification_time[i] == true)
+                  notificationTime[i] = !notificationTime[i];
+                  if (notificationTime[i] == true)
                     setState(() {
-                      notification_time[0] = true;
-                      Map<String, String> register_data = {
+                      notificationTime[0] = true;
+                      Map<String, String> registerData = {
                         "register_token": fcmtoken,
                         "time": i.toString(),
                         'enable': "1"
                       };
-                      // ApiHelper.postRegister(register_data);
+                      // ApiHelper.postRegister(registerData);
                       // Datafilemanage.save_notification_time();
                     });
                   else {
                     int fflag = 0;
                     for (int j = 1; j < 11; j++) {
-                      if (notification_time[j] == true) fflag = 1;
+                      if (notificationTime[j] == true) fflag = 1;
                     }
-                    if (fflag == 0) notification_time[0] = false;
+                    if (fflag == 0) notificationTime[0] = false;
                     setState(() {
-                      Map<String, String> register_data = {
+                      Map<String, String> registerData = {
                         "register_token": fcmtoken,
                         "time": i.toString(),
                         'enable': "0"
                       };
-                      // ApiHelper.postRegister(register_data);
+                      // ApiHelper.postRegister(registerData);
                       // Datafilemanage.save_notification_time();
                     });
                   }
@@ -330,34 +330,34 @@ class _AppDrawerState extends State<AppDrawer> {
                       Positioned(
                           right: 20,
                           child: Switch(
-                            value: notification_time[i],
+                            value: notificationTime[i],
                             onChanged: (value) {
                               if (value == true)
                                 setState(() {
-                                  notification_time[0] = true;
-                                  notification_time[i] = true;
-                                  Map<String, String> register_data = {
+                                  notificationTime[0] = true;
+                                  notificationTime[i] = true;
+                                  Map<String, String> registerData = {
                                     "register_token": fcmtoken,
                                     "time": i.toString(),
                                     'enable': "1"
                                   };
-                                  // ApiHelper.postRegister(register_data);
+                                  // ApiHelper.postRegister(registerData);
                                   // Datafilemanage.save_notification_time();
                                 });
                               else {
                                 setState(() {
-                                  notification_time[i] = false;
+                                  notificationTime[i] = false;
                                   int fflag = 0;
                                   for (int j = 1; j < 11; j++) {
-                                    if (notification_time[j] == true) fflag = 1;
+                                    if (notificationTime[j] == true) fflag = 1;
                                   }
-                                  if (fflag == 0) notification_time[0] = false;
-                                  Map<String, String> register_data = {
+                                  if (fflag == 0) notificationTime[0] = false;
+                                  Map<String, String> registerData = {
                                     "register_token": fcmtoken,
                                     "time": i.toString(),
                                     'enable': "0"
                                   };
-                                  // ApiHelper.postRegister(register_data);
+                                  // ApiHelper.postRegister(registerData);
                                   // Datafilemanage.save_notification_time();
                                 });
                               }

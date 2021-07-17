@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fx_screener/util/constants.dart';
 
 class SelectAsset extends StatelessWidget {
   const SelectAsset({Key? key, required this.assetSelected}) : super(key: key);
@@ -11,45 +10,58 @@ class SelectAsset extends StatelessWidget {
 
     return Container(
       padding: const EdgeInsets.all(12.0),
-      color: Theme.of(context).scaffoldBackgroundColor,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: Theme.of(context).scaffoldBackgroundColor,
+      ),
       height: 200,
       width: 150,
       child: Column(
         children: [
           Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(40)),
             height: 40,
-            color: Theme.of(context).primaryColor,
             child: Center(
               child: Text('Filter',
                   style: TextStyle(
-                      color: Colors.white,
+                      color: Theme.of(context).primaryColor,
                       fontSize: 18,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.bold)),
             ),
           ),
-          SizedBox(height: 20),
+          const Divider(
+            height: 20,
+            thickness: 1,
+            indent: 20,
+            endIndent: 20,
+          ),
           Expanded(
             child: ListView.separated(
                 shrinkWrap: true,
                 itemBuilder: (_, int index) {
-                  return Container(
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: InkWell(
-                        onTap: () {
-                          assetSelected;
-                          Navigator.pop(context);
-                        },
-                        child: Text(ASSET_LIST[index],
-                            style:
-                                TextStyle(fontSize: 16, fontFamily: 'Poppins')),
-                      ));
+                  return Center(
+                    child: Container(
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10)),
+                        child: InkWell(
+                          onTap: () {
+                            assetSelected(index);
+                            Navigator.pop(context);
+                          },
+                          child: Text(ASSET_LIST[index],
+                              style: TextStyle(
+                                  fontSize: 16, fontFamily: 'Poppins')),
+                        )),
+                  );
                 },
                 separatorBuilder: (BuildContext context, int index) {
-                  return SizedBox(
-                    height: 15,
+                  return const Divider(
+                    height: 20,
+                    thickness: 1,
+                    indent: 20,
+                    endIndent: 20,
                   );
                 },
                 itemCount: ASSET_LIST.length),
