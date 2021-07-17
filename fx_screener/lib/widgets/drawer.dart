@@ -91,9 +91,15 @@ class _AppDrawerState extends State<AppDrawer> {
                 });
               },
             ),
+            const Divider(
+              height: 20,
+              thickness: 1,
+              indent: 20,
+              endIndent: 20,
+            ),
             GestureDetector(
               child: Container(
-                  padding: EdgeInsets.only(top: 30, left: 20),
+                  padding: EdgeInsets.only(top: 10, left: 20),
                   child: Row(
                     children: [
                       Icon(Icons.near_me),
@@ -115,9 +121,15 @@ class _AppDrawerState extends State<AppDrawer> {
                         )));
               },
             ),
+            const Divider(
+              height: 20,
+              thickness: 1,
+              indent: 20,
+              endIndent: 20,
+            ),
             GestureDetector(
               child: Container(
-                  padding: EdgeInsets.only(top: 30, left: 20),
+                  padding: EdgeInsets.only(top: 10, left: 20),
                   child: Row(
                     children: [
                       Icon(Icons.business),
@@ -139,9 +151,15 @@ class _AppDrawerState extends State<AppDrawer> {
                         )));
               },
             ),
+            const Divider(
+              height: 20,
+              thickness: 1,
+              indent: 20,
+              endIndent: 20,
+            ),
             GestureDetector(
               child: Container(
-                  padding: EdgeInsets.only(top: 30, left: 20),
+                  padding: EdgeInsets.only(top: 10, left: 20),
                   child: Row(
                     children: [
                       Icon(Icons.receipt_long),
@@ -163,9 +181,15 @@ class _AppDrawerState extends State<AppDrawer> {
                         )));
               },
             ),
+            const Divider(
+              height: 20,
+              thickness: 1,
+              indent: 20,
+              endIndent: 20,
+            ),
             GestureDetector(
               child: Container(
-                  padding: EdgeInsets.only(top: 30, left: 20),
+                  padding: EdgeInsets.only(top: 10, left: 20),
                   child: Row(
                     children: [
                       Icon(Icons.privacy_tip),

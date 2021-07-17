@@ -54,76 +54,53 @@ class _HomePageState extends State<HomePage> {
 
   _buildBottomBar() {
     return Stack(children: [
-      ConvexAppBar(
-          style: TabStyle.react,
-          backgroundColor: Colors.white,
-          onTap: (int i) {
-            print("object $i");
-            onTabTapped(i);
-          },
-          items: [
-            TabItem(
-                title: 'Screener',
-                icon: Icon(BottomIcons.fi_rr_crown,
-                    color: (_currentIndex == 0)
-                        ? Theme.of(context).primaryColor
-                        : Color(0xff868A9A))),
-            TabItem(
-                title: 'Chart',
-                icon: Icon(BottomIcons.fi_rr_stats,
-                    color: (_currentIndex == 1)
-                        ? Theme.of(context).primaryColor
-                        : Color(0xff868A9A))),
-            TabItem(
-                title: 'Pattern',
-                icon: Icon(BottomIcons.fi_rr_pulse,
-                    color: (_currentIndex == 2)
-                        ? Theme.of(context).primaryColor
-                        : Color(0xff868A9A))),
-            TabItem(
-                title: 'Favorite',
-                icon: Icon(BottomIcons.fi_rr_star,
-                    color: (_currentIndex == 3)
-                        ? Theme.of(context).primaryColor
-                        : Color(0xff868A9A)))
-          ]),
+      Positioned(
+        child: StyleProvider(
+            style: Style(),
+            child: ConvexAppBar(
+                height: 60,
+                style: TabStyle.reactCircle,
+                backgroundColor: Colors.white,
+                onTap: (int i) {
+                  print("object $i");
+                  onTabTapped(i);
+                },
+                items: [
+                  TabItem(
+                      title: 'Screener',
+                      icon: Icon(BottomIcons.fi_rr_crown,
+                          color: (_currentIndex == 0)
+                              ? Theme.of(context).primaryColor
+                              : Color(0xff868A9A))),
+                  TabItem(
+                      title: 'Chart',
+                      icon: Icon(BottomIcons.fi_rr_stats,
+                          color: (_currentIndex == 1)
+                              ? Theme.of(context).primaryColor
+                              : Color(0xff868A9A))),
+                  TabItem(
+                      title: 'Pattern',
+                      icon: Icon(BottomIcons.fi_rr_pulse,
+                          color: (_currentIndex == 2)
+                              ? Theme.of(context).primaryColor
+                              : Color(0xff868A9A))),
+                  TabItem(
+                      title: 'Favorite',
+                      icon: Icon(BottomIcons.fi_rr_star,
+                          color: (_currentIndex == 3)
+                              ? Theme.of(context).primaryColor
+                              : Color(0xff868A9A)))
+                ])),
+      ),
       Positioned(
           child: Container(
-            height: 3,
-            width: 160,
+            height: 1,
+            width: 200,
             color: Theme.of(context).primaryColor,
           ),
-          bottom: 1,
-          left: (MediaQuery.of(context).size.width / 2) - 80)
+          bottom: 0,
+          left: (MediaQuery.of(context).size.width / 2) - 100)
     ]);
-
-    // BottomNavigationBar(
-    //   backgroundColor: Theme.of(context).primaryColor,
-    //   selectedFontSize: 12,
-    //   unselectedFontSize: 10,
-    //   selectedItemColor: Colors.white,
-    //   unselectedItemColor: Colors.grey[400],
-    //   onTap: onTabTapped,
-    //   currentIndex: _currentIndex,
-    //   type: BottomNavigationBarType.fixed,
-    //   iconSize: 30,
-    //   items: <BottomNavigationBarItem>[
-    //     BottomNavigationBarItem(
-    //         icon: Icon(Icons.circle_outlined), label: 'Screener'),
-    //     BottomNavigationBarItem(
-    //       icon: Icon(Icons.bar_chart_outlined),
-    //       label: 'Chart',
-    //     ),
-    //     BottomNavigationBarItem(
-    //       icon: Icon(Icons.insights),
-    //       label: 'Pattern',
-    //     ),
-    //     BottomNavigationBarItem(
-    //       icon: Icon(Icons.favorite_outline),
-    //       label: 'Favorite',
-    //     ),
-    //   ],
-    // );
   }
 
   @override
@@ -136,5 +113,21 @@ class _HomePageState extends State<HomePage> {
           physics: NeverScrollableScrollPhysics()),
       bottomNavigationBar: _buildBottomBar(),
     ));
+  }
+}
+
+class Style extends StyleHook {
+  @override
+  double get activeIconSize => 40;
+
+  @override
+  double get activeIconMargin => 10;
+
+  @override
+  double get iconSize => 20;
+
+  @override
+  TextStyle textStyle(Color color) {
+    return TextStyle(fontSize: 12, color: Colors.black);
   }
 }

@@ -124,14 +124,9 @@ class _AddFavoriteState extends State<AddFavorite> {
     return SafeArea(
         child: Scaffold(
             appBar: AppBar(
+              centerTitle: true,
               backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               elevation: 0,
-              leading: IconButton(
-                  onPressed: () => Navigator.pop(context),
-                  icon: Icon(
-                    Icons.arrow_back_ios,
-                    color: Theme.of(context).primaryColor,
-                  )),
               title: Container(
                 height: 50,
                 width: 300,

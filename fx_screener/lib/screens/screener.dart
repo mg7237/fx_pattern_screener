@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:fx_screener/util/constants.dart';
 import 'package:fx_screener/models/currency_pair.dart';
-import 'package:fx_screener/widgets/my_drawer.dart';
 import 'package:fx_screener/widgets/select_duration.dart';
 import 'package:fx_screener/widgets/select_sort.dart';
 import 'package:fx_screener/screens/add_favorite.dart';
 import 'package:fx_screener/widgets/select_asset.dart';
-import 'package:fx_screener/screens/drawer.dart';
+import 'package:fx_screener/widgets/drawer.dart';
 
 class Screener extends StatefulWidget {
   @override
@@ -20,7 +19,6 @@ class _ScreenerState extends State<Screener> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _ccyPair = getCurrencyPairData();
   }
@@ -108,7 +106,7 @@ class _ScreenerState extends State<Screener> {
               ),
             ),
             Positioned(
-              left: 100,
+              left: 90,
               top: 10,
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -119,21 +117,29 @@ class _ScreenerState extends State<Screener> {
                       style: TextStyle(
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.bold,
-                          fontSize: 18),
+                          fontSize: 20),
                     ),
                     Text(
                       'Updated 00.35 hours ago',
-                      style: TextStyle(fontFamily: 'Poppins', fontSize: 10),
+                      style: TextStyle(fontFamily: 'Poppins', fontSize: 12),
                     ),
                   ]),
             ),
             Positioned(
                 right: 1,
-                top: 10,
-                child: Container(
-                    height: 60,
-                    width: 60,
-                    child: Image(image: AssetImage('assets/patterns/RE.png'))))
+                child: Column(
+                  children: [
+                    Container(
+                        height: 45,
+                        width: 45,
+                        child:
+                            Image(image: AssetImage('assets/patterns/RE.png'))),
+                    Text(
+                      'Rectangle',
+                      style: TextStyle(fontFamily: 'Poppins', fontSize: 12),
+                    )
+                  ],
+                ))
           ],
         ),
       ),
