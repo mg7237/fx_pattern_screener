@@ -10,7 +10,7 @@ class SelectSort extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(12.0),
       color: Theme.of(context).scaffoldBackgroundColor,
-      height: 200,
+      height: 220,
       width: 150,
       child: Column(
         children: [
@@ -35,24 +35,24 @@ class SelectSort extends StatelessWidget {
                 shrinkWrap: true,
                 itemBuilder: (_, int index) {
                   return Container(
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10)),
                       child: Center(
-                        child: InkWell(
-                          onTap: () {
-                            sortSelected(index);
-                            Navigator.pop(context);
-                          },
-                          child: Text(SORT_LIST[index],
-                              style: TextStyle(
-                                  fontSize: 16, fontFamily: 'Poppins')),
-                        ),
-                      ));
+                    child: InkWell(
+                      onTap: () {
+                        sortSelected(index);
+                        Navigator.pop(context);
+                      },
+                      child: Text(SORT_LIST[index],
+                          style:
+                              TextStyle(fontSize: 16, fontFamily: 'Poppins')),
+                    ),
+                  ));
                 },
                 separatorBuilder: (BuildContext context, int index) {
-                  return SizedBox(
-                    height: 15,
+                  return const Divider(
+                    height: 20,
+                    thickness: 1,
+                    indent: 20,
+                    endIndent: 20,
                   );
                 },
                 itemCount: SORT_LIST.length),

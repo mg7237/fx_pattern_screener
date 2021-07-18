@@ -35,23 +35,23 @@ class SelectDuration extends StatelessWidget {
                 shrinkWrap: true,
                 itemBuilder: (_, int index) {
                   return Container(
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10)),
                       child: Center(
-                        child: InkWell(
-                            onTap: () {
-                              durationSelected(index);
-                              Navigator.pop(context);
-                            },
-                            child: Text(DURATION_LIST[index],
-                                style: TextStyle(
-                                    fontSize: 16, fontFamily: 'Poppins'))),
-                      ));
+                    child: InkWell(
+                        onTap: () {
+                          durationSelected(index);
+                          Navigator.pop(context);
+                        },
+                        child: Text(DURATION_LIST[index],
+                            style: TextStyle(
+                                fontSize: 16, fontFamily: 'Poppins'))),
+                  ));
                 },
                 separatorBuilder: (BuildContext context, int index) {
-                  return SizedBox(
-                    height: 15,
+                  return const Divider(
+                    height: 20,
+                    thickness: 1,
+                    indent: 20,
+                    endIndent: 20,
                   );
                 },
                 itemCount: DURATION_LIST.length),

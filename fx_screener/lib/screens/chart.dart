@@ -142,14 +142,15 @@ class _CandleChartState extends State<CandleChart> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        body: new Center(
+        body: new Container(
+            color: Color(0xffF7F8FB),
             child: new Center(
-      child: AspectRatio(
-        aspectRatio: 1.2,
-        child: Candlesticks(
-          candles: candles,
-        ),
-      ),
-    )));
+              child: AspectRatio(
+                aspectRatio: 1.2,
+                child: Candlesticks(
+                  candles: candles,
+                ),
+              ),
+            )));
   }
 }

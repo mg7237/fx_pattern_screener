@@ -2,7 +2,7 @@
     package="com.example.fx_screener">
    <application
         android:usesCleartextTraffic="true"
-        android:label="fx_screener"
+        android:label="Fx Pattern Screener"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

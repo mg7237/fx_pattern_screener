@@ -68,7 +68,7 @@ class _ScreenerState extends State<Screener> {
 
   Widget buildCurrencyPairList(BuildContext context, int listIndex) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 5),
       child: Container(
         decoration: BoxDecoration(
             color: Colors.white, borderRadius: BorderRadius.circular(15)),
@@ -193,15 +193,8 @@ class _ScreenerState extends State<Screener> {
             drawer: AppDrawer(),
             body: Container(
                 // color: backGroundColor,
-                child: ListView.separated(
-                    separatorBuilder: (BuildContext context, int index) {
-                      return const Divider(
-                        height: 20,
-                        thickness: 1,
-                        indent: 20,
-                        endIndent: 20,
-                      );
-                    },
+                color: Color(0xffF7F8FB),
+                child: ListView.builder(
                     itemCount: _ccyPair.length,
                     itemBuilder: buildCurrencyPairList))));
   }

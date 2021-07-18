@@ -42,18 +42,15 @@ class SelectAsset extends StatelessWidget {
                 itemBuilder: (_, int index) {
                   return Center(
                     child: Container(
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10)),
                         child: InkWell(
-                          onTap: () {
-                            assetSelected(index);
-                            Navigator.pop(context);
-                          },
-                          child: Text(ASSET_LIST[index],
-                              style: TextStyle(
-                                  fontSize: 16, fontFamily: 'Poppins')),
-                        )),
+                      onTap: () {
+                        assetSelected(index);
+                        Navigator.pop(context);
+                      },
+                      child: Text(ASSET_LIST[index],
+                          style:
+                              TextStyle(fontSize: 16, fontFamily: 'Poppins')),
+                    )),
                   );
                 },
                 separatorBuilder: (BuildContext context, int index) {

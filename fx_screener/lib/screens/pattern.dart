@@ -41,186 +41,247 @@ class _PatternState extends State<Pattern> {
     return Container(
       padding: EdgeInsets.all(10),
       child: Scaffold(
+        backgroundColor: Color(0xffF7F8FB),
         body: Padding(
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Icon(Icons.lock_open, color: Color(0xff1DBF73)),
-                      SizedBox(width: 10),
-                      Text('All Type', style: style),
-                    ],
-                  ),
-                  Switch(
-                      value: allType,
-                      onChanged: (value) => changeAllSwitch(value))
-                ],
+              Container(
+                padding: EdgeInsets.only(bottom: 5),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.lock_open, color: Color(0xff1DBF73)),
+                        SizedBox(width: 10),
+                        Text('All Type', style: style),
+                      ],
+                    ),
+                    Switch(
+                        value: allType,
+                        onChanged: (value) => changeAllSwitch(value))
+                  ],
+                ),
               ),
               SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Icon(Icons.lock_open, color: Color(0xff1DBF73)),
-                      SizedBox(width: 10),
-                      Text('Rectangle', style: style),
-                    ],
-                  ),
-                  Switch(
-                      value: rectangle,
-                      onChanged: (value) => setState(() {
-                            rectangle = value;
-                          }))
-                ],
+              Container(
+                padding: EdgeInsets.only(bottom: 5),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.lock_open, color: Color(0xff1DBF73)),
+                        SizedBox(width: 10),
+                        Text('Rectangle', style: style),
+                      ],
+                    ),
+                    Switch(
+                        value: rectangle,
+                        onChanged: (value) => setState(() {
+                              rectangle = value;
+                            }))
+                  ],
+                ),
               ),
               SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Icon(Icons.lock_open, color: Color(0xff1DBF73)),
-                      SizedBox(width: 10),
-                      Text('Triangle', style: style),
-                    ],
-                  ),
-                  Switch(
-                      value: triangle,
-                      onChanged: (value) => setState(() {
-                            rectangle = triangle;
-                          }))
-                ],
+              Container(
+                padding: EdgeInsets.only(bottom: 5),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.lock_open, color: Color(0xff1DBF73)),
+                        SizedBox(width: 10),
+                        Text('Triangle', style: style),
+                      ],
+                    ),
+                    Switch(
+                        value: triangle,
+                        onChanged: (value) => setState(() {
+                              rectangle = triangle;
+                            }))
+                  ],
+                ),
               ),
               SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Icon(Icons.lock_open, color: Color(0xff1DBF73)),
-                      SizedBox(width: 10),
-                      Text('Wedge', style: style),
-                    ],
-                  ),
-                  Switch(
-                      value: wedge,
-                      onChanged: (value) => setState(() {
-                            rectangle = wedge;
-                          }))
-                ],
+              Container(
+                padding: EdgeInsets.only(bottom: 5),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.lock_open, color: Color(0xff1DBF73)),
+                        SizedBox(width: 10),
+                        Text('Wedge', style: style),
+                      ],
+                    ),
+                    Switch(
+                        value: wedge,
+                        onChanged: (value) => setState(() {
+                              rectangle = wedge;
+                            }))
+                  ],
+                ),
               ),
               SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Icon(Icons.lock_open, color: Color(0xff1DBF73)),
-                      SizedBox(width: 10),
-                      Text('Flag', style: style),
-                    ],
-                  ),
-                  Switch(
-                      value: flag,
-                      onChanged: (value) => setState(() {
-                            flag = value;
-                          }))
-                ],
+              Container(
+                padding: EdgeInsets.only(bottom: 5),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.lock_open, color: Color(0xff1DBF73)),
+                        SizedBox(width: 10),
+                        Text('Flag', style: style),
+                      ],
+                    ),
+                    Switch(
+                        value: flag,
+                        onChanged: (value) => setState(() {
+                              flag = value;
+                            }))
+                  ],
+                ),
               ),
               SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Icon(Icons.lock_open, color: Color(0xff1DBF73)),
-                      SizedBox(width: 10),
-                      Text('Pennant', style: style),
-                    ],
-                  ),
-                  Switch(
-                      value: pennant,
-                      onChanged: (value) => setState(() {
-                            pennant = value;
-                          }))
-                ],
+              Container(
+                padding: EdgeInsets.only(bottom: 5),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.lock_open, color: Color(0xff1DBF73)),
+                        SizedBox(width: 10),
+                        Text('Pennant', style: style),
+                      ],
+                    ),
+                    Switch(
+                        value: pennant,
+                        onChanged: (value) => setState(() {
+                              pennant = value;
+                            }))
+                  ],
+                ),
               ),
               SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Icon(Icons.lock_open, color: Color(0xff1DBF73)),
-                      SizedBox(width: 10),
-                      Text('Head and Shoulders', style: style),
-                    ],
-                  ),
-                  Switch(
-                      value: head,
-                      onChanged: (value) => setState(() {
-                            head = value;
-                          }))
-                ],
+              Container(
+                padding: EdgeInsets.only(bottom: 5),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.lock_open, color: Color(0xff1DBF73)),
+                        SizedBox(width: 10),
+                        Text('Head and Shoulders', style: style),
+                      ],
+                    ),
+                    Switch(
+                        value: head,
+                        onChanged: (value) => setState(() {
+                              head = value;
+                            }))
+                  ],
+                ),
               ),
               SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Icon(Icons.lock_open, color: Color(0xff1DBF73)),
-                      SizedBox(width: 10),
-                      Text('Double Top /Bottom', style: style),
-                    ],
-                  ),
-                  Switch(
-                      value: double,
-                      onChanged: (value) => setState(() {
-                            double = value;
-                          }))
-                ],
+              Container(
+                padding: EdgeInsets.only(bottom: 5),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.lock_open, color: Color(0xff1DBF73)),
+                        SizedBox(width: 10),
+                        Text('Double Top /Bottom', style: style),
+                      ],
+                    ),
+                    Switch(
+                        value: double,
+                        onChanged: (value) => setState(() {
+                              double = value;
+                            }))
+                  ],
+                ),
               ),
               SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Icon(Icons.lock_open, color: Color(0xff1DBF73)),
-                      SizedBox(width: 10),
-                      Text('Triple Top and Bottom', style: style),
-                    ],
-                  ),
-                  Switch(
-                      value: triple,
-                      onChanged: (value) => setState(() {
-                            triple = value;
-                          }))
-                ],
+              Container(
+                padding: EdgeInsets.only(bottom: 5),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.lock_open, color: Color(0xff1DBF73)),
+                        SizedBox(width: 10),
+                        Text('Triple Top and Bottom', style: style),
+                      ],
+                    ),
+                    Switch(
+                        value: triple,
+                        onChanged: (value) => setState(() {
+                              triple = value;
+                            }))
+                  ],
+                ),
               ),
               SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Icon(Icons.lock_open, color: Color(0xff1DBF73)),
-                      SizedBox(width: 10),
-                      Text('Butterfly', style: style),
-                    ],
-                  ),
-                  Switch(
-                      value: butterfly,
-                      onChanged: (value) => setState(() {
-                            butterfly = value;
-                          }))
-                ],
+              Container(
+                padding: EdgeInsets.only(bottom: 5),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.lock_open, color: Color(0xff1DBF73)),
+                        SizedBox(width: 10),
+                        Text('Butterfly', style: style),
+                      ],
+                    ),
+                    Switch(
+                        value: butterfly,
+                        onChanged: (value) => setState(() {
+                              butterfly = value;
+                            }))
+                  ],
+                ),
               ),
             ],
           ),

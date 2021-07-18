@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fx_screener/screens/webview.dart';
-import 'package:fx_screener/util/notifications_data.dart';
+import 'package:fx_screener/screens/subscription.dart';
 
 class AppDrawer extends StatefulWidget {
   const AppDrawer({Key? key}) : super(key: key);
@@ -10,368 +10,202 @@ class AppDrawer extends StatefulWidget {
 }
 
 class _AppDrawerState extends State<AppDrawer> {
-  int stateflag = 0;
+  bool _alert = false;
   @override
   Widget build(BuildContext context) {
     return Container(
         child: Drawer(
             child: ListView(children: [
-      if (stateflag == 0)
-        Container(
-          height: 80,
-          margin: EdgeInsets.only(bottom: 10),
-          padding: EdgeInsets.only(top: 20, left: 20, bottom: 10),
-          decoration: BoxDecoration(color: Theme.of(context).primaryColor),
-          child: Text(
-            'Fx Screener',
-            style: TextStyle(
-                fontSize: 25,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'Poppins'),
+      Container(
+        height: 80,
+        margin: EdgeInsets.only(bottom: 10),
+        padding: EdgeInsets.only(top: 20, left: 20, bottom: 10),
+        decoration: BoxDecoration(color: Theme.of(context).primaryColor),
+        child: Text(
+          'Fx Pattern Screener',
+          style: TextStyle(
+              fontSize: 23,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Poppins'),
+        ),
+      ),
+      Column(
+        children: [
+          Container(
+              width: 300,
+              padding: EdgeInsets.only(top: 10, left: 20, bottom: 5, right: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(children: [
+                    Icon(Icons.notifications),
+                    Text(
+                      ' Notifications',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 18,
+                      ),
+                    )
+                  ]),
+                  Switch(
+                      value: _alert,
+                      onChanged: (value) {
+                        setState(() {
+                          _alert = value;
+                        });
+                      })
+                ],
+              )),
+          const Divider(
+            height: 20,
+            thickness: 1,
+            indent: 20,
+            endIndent: 20,
           ),
-        ),
-      if (stateflag == 1)
-        Container(
-          height: 60,
-          padding: EdgeInsets.only(top: 15, left: 10),
-          decoration: BoxDecoration(color: Theme.of(context).primaryColor),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              GestureDetector(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 10.0),
-                  child: Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.white,
-                    size: 20,
-                  ),
-                ),
-                onTap: () {
-                  setState(() {
-                    stateflag = 0;
-                  });
-                },
-              ),
-              SizedBox(width: 15),
-              Text(
-                'Alert Setting',
-                style: TextStyle(
-                    fontSize: 25,
-                    fontFamily: 'Poppins',
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
-              ),
-            ],
-          ),
-        ),
-      if (stateflag == 0)
-        Column(
-          children: [
-            GestureDetector(
-              child: Container(
-                  width: 300,
-                  padding: EdgeInsets.only(top: 30, left: 20, bottom: 5),
-                  child: Row(
-                    children: [
-                      Icon(Icons.notifications),
-                      Text(
-                        ' Alert Setting',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 18,
-                        ),
-                      ),
-                    ],
-                  )),
-              onTap: () {
-                setState(() {
-                  stateflag = 1;
-                });
-              },
-            ),
-            const Divider(
-              height: 20,
-              thickness: 1,
-              indent: 20,
-              endIndent: 20,
-            ),
-            GestureDetector(
-              child: Container(
-                  padding: EdgeInsets.only(top: 10, left: 20),
-                  child: Row(
-                    children: [
-                      Icon(Icons.near_me),
-                      Text(
-                        ' Support',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 18,
-                        ),
-                      ),
-                    ],
-                  )),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => WebviewPage(
-                          url: "http://zapp.fxsonic.com/support/view",
-                          title: 'Support',
-                        )));
-              },
-            ),
-            const Divider(
-              height: 20,
-              thickness: 1,
-              indent: 20,
-              endIndent: 20,
-            ),
-            GestureDetector(
-              child: Container(
-                  padding: EdgeInsets.only(top: 10, left: 20),
-                  child: Row(
-                    children: [
-                      Icon(Icons.business),
-                      Text(
-                        ' About us',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 18,
-                        ),
-                      ),
-                    ],
-                  )),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => WebviewPage(
-                          url: "http://zapp.fxsonic.com/about/view",
-                          title: 'About Us',
-                        )));
-              },
-            ),
-            const Divider(
-              height: 20,
-              thickness: 1,
-              indent: 20,
-              endIndent: 20,
-            ),
-            GestureDetector(
-              child: Container(
-                  padding: EdgeInsets.only(top: 10, left: 20),
-                  child: Row(
-                    children: [
-                      Icon(Icons.receipt_long),
-                      Text(
-                        ' Terms & Conditions',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 18,
-                        ),
-                      ),
-                    ],
-                  )),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => WebviewPage(
-                          url: "http://zapp.fxsonic.com/term/view",
-                          title: 'Terms & Conditions',
-                        )));
-              },
-            ),
-            const Divider(
-              height: 20,
-              thickness: 1,
-              indent: 20,
-              endIndent: 20,
-            ),
-            GestureDetector(
-              child: Container(
-                  padding: EdgeInsets.only(top: 10, left: 20),
-                  child: Row(
-                    children: [
-                      Icon(Icons.privacy_tip),
-                      Text(
-                        ' Privacy Policy',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 18,
-                        ),
-                      ),
-                    ],
-                  )),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => WebviewPage(
-                          url: "http://zapp.fxsonic.com/privacy/view",
-                          title: 'Privacy Policy',
-                        )));
-              },
-            ),
-          ],
-        ),
-      if (stateflag == 1)
-        Column(
-          children: [
-            //title
-            GestureDetector(
-              onTap: () {
-                if (notificationTime[0] == true)
-                  for (int i = 1; i < 11; i++) {
-                    setState(() {
-                      notificationTime[0] = false;
-                      notificationTime[i] = false;
-                      Map<String, String> registerData = {
-                        "register_token": fcmtoken,
-                        "time": i.toString(),
-                        'enable': "0"
-                      };
-                      // ApiHelper.postRegister(registerData);
-                      // Datafilemanage.save_notification_time();
-                    });
-                  }
-              },
-              //show notification
-              child: Container(
-                margin: EdgeInsets.only(bottom: 10),
-                height: 40,
-                decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                child: Stack(
-                  alignment: Alignment.center,
+          GestureDetector(
+            child: Container(
+                padding: EdgeInsets.only(top: 10, left: 20),
+                child: Row(
                   children: [
-                    Positioned(
-                      left: 40,
-                      child: Text(
-                        "Show Alert",
-                        style: TextStyle(
-                            fontSize: 17,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'Poppins'),
+                    Icon(Icons.shopping_cart),
+                    Text(
+                      ' Buy Subscription',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 18,
                       ),
                     ),
-                    Positioned(
-                        right: 20,
-                        child: Switch(
-                          value: notificationTime[0],
-                          onChanged: (value) {
-                            if (value == false)
-                              for (int i = 1; i < 11; i++) {
-                                setState(() {
-                                  notificationTime[0] = false;
-                                  notificationTime[i] = false;
-                                  Map<String, String> registerData = {
-                                    "register_token": fcmtoken,
-                                    "time": i.toString(),
-                                    'enable': "0"
-                                  };
-                                  // ApiHelper.postRegister(registerData);
-                                  // Datafilemanage.save_notification_time();
-                                });
-                              }
-                          },
-                        ))
                   ],
-                ),
-              ),
-            ),
-            //timeset
-            SizedBox(
-              height: 10,
-            ),
-            for (int i = 1; i < 11; i++)
-              GestureDetector(
-                onTap: () {
-                  notificationTime[i] = !notificationTime[i];
-                  if (notificationTime[i] == true)
-                    setState(() {
-                      notificationTime[0] = true;
-                      Map<String, String> registerData = {
-                        "register_token": fcmtoken,
-                        "time": i.toString(),
-                        'enable': "1"
-                      };
-                      // ApiHelper.postRegister(registerData);
-                      // Datafilemanage.save_notification_time();
-                    });
-                  else {
-                    int fflag = 0;
-                    for (int j = 1; j < 11; j++) {
-                      if (notificationTime[j] == true) fflag = 1;
-                    }
-                    if (fflag == 0) notificationTime[0] = false;
-                    setState(() {
-                      Map<String, String> registerData = {
-                        "register_token": fcmtoken,
-                        "time": i.toString(),
-                        'enable': "0"
-                      };
-                      // ApiHelper.postRegister(registerData);
-                      // Datafilemanage.save_notification_time();
-                    });
-                  }
-                },
-                child: Container(
-                  height: 40,
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Positioned(
-                        left: 40,
-                        child: Text(
-                          notificationtimename_1[i],
-                          style: TextStyle(
-                              fontSize: 17, fontWeight: FontWeight.bold),
-                        ),
+                )),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => SubscriptionPage()));
+            },
+          ),
+          const Divider(
+            height: 20,
+            thickness: 1,
+            indent: 20,
+            endIndent: 20,
+          ),
+          GestureDetector(
+            child: Container(
+                padding: EdgeInsets.only(top: 10, left: 20),
+                child: Row(
+                  children: [
+                    Icon(Icons.near_me),
+                    Text(
+                      ' Support',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 18,
                       ),
-                      Positioned(
-                          right: 20,
-                          child: Switch(
-                            value: notificationTime[i],
-                            onChanged: (value) {
-                              if (value == true)
-                                setState(() {
-                                  notificationTime[0] = true;
-                                  notificationTime[i] = true;
-                                  Map<String, String> registerData = {
-                                    "register_token": fcmtoken,
-                                    "time": i.toString(),
-                                    'enable': "1"
-                                  };
-                                  // ApiHelper.postRegister(registerData);
-                                  // Datafilemanage.save_notification_time();
-                                });
-                              else {
-                                setState(() {
-                                  notificationTime[i] = false;
-                                  int fflag = 0;
-                                  for (int j = 1; j < 11; j++) {
-                                    if (notificationTime[j] == true) fflag = 1;
-                                  }
-                                  if (fflag == 0) notificationTime[0] = false;
-                                  Map<String, String> registerData = {
-                                    "register_token": fcmtoken,
-                                    "time": i.toString(),
-                                    'enable': "0"
-                                  };
-                                  // ApiHelper.postRegister(registerData);
-                                  // Datafilemanage.save_notification_time();
-                                });
-                              }
-                            },
-                          ))
-                    ],
-                  ),
-                ),
-              ),
-            SizedBox(
-              height: 10,
-            ),
-          ],
-        ),
+                    ),
+                  ],
+                )),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => WebviewPage(
+                        url: "http://zapp.fxsonic.com/support/view",
+                        title: 'Support',
+                      )));
+            },
+          ),
+          const Divider(
+            height: 20,
+            thickness: 1,
+            indent: 20,
+            endIndent: 20,
+          ),
+          GestureDetector(
+            child: Container(
+                padding: EdgeInsets.only(top: 10, left: 20),
+                child: Row(
+                  children: [
+                    Icon(Icons.business),
+                    Text(
+                      ' About us',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 18,
+                      ),
+                    ),
+                  ],
+                )),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => WebviewPage(
+                        url: "http://zapp.fxsonic.com/about/view",
+                        title: 'About Us',
+                      )));
+            },
+          ),
+          const Divider(
+            height: 20,
+            thickness: 1,
+            indent: 20,
+            endIndent: 20,
+          ),
+          GestureDetector(
+            child: Container(
+                padding: EdgeInsets.only(top: 10, left: 20),
+                child: Row(
+                  children: [
+                    Icon(Icons.receipt_long),
+                    Text(
+                      ' Terms & Conditions',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 18,
+                      ),
+                    ),
+                  ],
+                )),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => WebviewPage(
+                        url: "http://zapp.fxsonic.com/term/view",
+                        title: 'Terms & Conditions',
+                      )));
+            },
+          ),
+          const Divider(
+            height: 20,
+            thickness: 1,
+            indent: 20,
+            endIndent: 20,
+          ),
+          GestureDetector(
+            child: Container(
+                padding: EdgeInsets.only(top: 10, left: 20),
+                child: Row(
+                  children: [
+                    Icon(Icons.privacy_tip),
+                    Text(
+                      ' Privacy Policy',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 18,
+                      ),
+                    ),
+                  ],
+                )),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => WebviewPage(
+                        url: "http://zapp.fxsonic.com/privacy/view",
+                        title: 'Privacy Policy',
+                      )));
+            },
+          ),
+        ],
+      ),
     ])));
   }
 }

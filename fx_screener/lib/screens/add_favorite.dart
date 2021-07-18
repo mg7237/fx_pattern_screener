@@ -45,75 +45,74 @@ class _AddFavoriteState extends State<AddFavorite> {
 
   Widget _buildCurrencyList(BuildContext context, int listIndex) {
     return Container(
-      child: Container(
-        padding: const EdgeInsets.all(8.0),
-        decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(15)),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  _ccyPairData[listIndex].currencyOne +
-                      _ccyPairData[listIndex].currencyTwo,
+      margin: const EdgeInsets.symmetric(vertical: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8),
+      decoration: BoxDecoration(
+          color: Colors.white, borderRadius: BorderRadius.circular(15)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                _ccyPairData[listIndex].currencyOne +
+                    _ccyPairData[listIndex].currencyTwo,
+                style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18),
+              ),
+              Text(
+                  _truncate(_ccyData[_ccyPairData[listIndex].currencyOne]!
+                          .currencyDescription +
+                      ' / ' +
+                      _ccyData[_ccyPairData[listIndex].currencyTwo]!
+                          .currencyDescription),
                   style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18),
-                ),
-                Text(
-                    _truncate(_ccyData[_ccyPairData[listIndex].currencyOne]!
-                            .currencyDescription +
-                        ' / ' +
-                        _ccyData[_ccyPairData[listIndex].currencyTwo]!
-                            .currencyDescription),
-                    style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 12,
-                        color: Color(0xff868A9A)))
-              ],
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 5.0),
-                  child: Container(
-                      height: 26,
-                      width: 26,
-                      decoration: BoxDecoration(
-                          border: Border.all(),
-                          borderRadius: BorderRadius.circular(26)),
-                      child: Center(
-                        child: Text('Fx',
-                            style:
-                                TextStyle(fontSize: 10, fontFamily: 'Poppins')),
-                      )),
-                ),
-                SizedBox(width: 10),
-                Column(
-                  children: [
-                    Text('FXCM',
-                        style: TextStyle(fontSize: 18, fontFamily: 'Poppins')),
-                    Text('forex',
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 12,
-                            color: Color(0xff868A9A)))
-                  ],
-                ),
-                IconButton(
-                  onPressed: () => {},
-                  icon: Icon(Icons.add),
-                  iconSize: 30,
-                )
-              ],
-            )
-          ],
-        ),
+                      fontSize: 12,
+                      color: Color(0xff868A9A)))
+            ],
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 5.0),
+                child: Container(
+                    height: 26,
+                    width: 26,
+                    decoration: BoxDecoration(
+                        border: Border.all(),
+                        borderRadius: BorderRadius.circular(26)),
+                    child: Center(
+                      child: Text('Fx',
+                          style:
+                              TextStyle(fontSize: 10, fontFamily: 'Poppins')),
+                    )),
+              ),
+              SizedBox(width: 10),
+              Column(
+                children: [
+                  Text('FXCM',
+                      style: TextStyle(fontSize: 18, fontFamily: 'Poppins')),
+                  Text('forex',
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 12,
+                          color: Color(0xff868A9A)))
+                ],
+              ),
+              IconButton(
+                onPressed: () => {},
+                icon: Icon(Icons.add),
+                iconSize: 30,
+              )
+            ],
+          )
+        ],
       ),
     );
   }
@@ -166,7 +165,7 @@ class _AddFavoriteState extends State<AddFavorite> {
             ),
             body: Container(
                 padding: EdgeInsets.all(8),
-                color: Theme.of(context).scaffoldBackgroundColor,
+                color: Color(0xffF7F8FB),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -185,16 +184,8 @@ class _AddFavoriteState extends State<AddFavorite> {
                       height: 10,
                     ),
                     Expanded(
-                      child: ListView.separated(
+                      child: ListView.builder(
                           itemBuilder: _buildCurrencyList,
-                          separatorBuilder: (BuildContext context, int index) {
-                            return const Divider(
-                              height: 20,
-                              thickness: 1,
-                              indent: 20,
-                              endIndent: 20,
-                            );
-                          },
                           itemCount: _ccyPairData.length),
                     )
                   ],

@@ -45,7 +45,6 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _currentIndex = index;
       pageController.jumpToPage(index);
-      setState(() {});
     });
   }
 
