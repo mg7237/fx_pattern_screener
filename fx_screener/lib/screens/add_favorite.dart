@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fx_screener/models/currency_pair.dart';
 import 'package:fx_screener/widgets/select_asset.dart';
+import 'package:fx_screener/custom_icons/bottom_icons.dart';
+import 'package:fx_screener/widgets/select_sort.dart';
 
 class AddFavorite extends StatefulWidget {
   const AddFavorite({Key? key}) : super(key: key);
@@ -13,6 +15,23 @@ class _AddFavoriteState extends State<AddFavorite> {
   TextEditingController _searchController = TextEditingController();
   late Map<String, Currency> _ccyData;
   late List<CurrencyPairData> _ccyPairData;
+  late List<bool> favorites;
+
+  void _sortSelected(int index) {}
+
+  void _selectSortBy() {
+    showDialog(
+        context: context,
+        builder: (_) {
+          return AlertDialog(
+            elevation: 10,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20.0))),
+            content: SelectSort(sortSelected: _sortSelected),
+          );
+        });
+    //SelectSort
+  }
 
   void _selectAssetClass() {
     showDialog(
@@ -34,6 +53,7 @@ class _AddFavoriteState extends State<AddFavorite> {
     super.initState();
     _ccyData = getCurrencyData();
     _ccyPairData = getCurrencyPairData();
+    favorites = List.filled(_ccyPairData.length, false);
   }
 
   String _truncate(String input) {
@@ -106,8 +126,15 @@ class _AddFavoriteState extends State<AddFavorite> {
                 ],
               ),
               IconButton(
-                onPressed: () => {},
-                icon: Icon(Icons.add),
+                onPressed: () {
+                  setState(() {
+                    favorites[listIndex] = !favorites[listIndex];
+                  });
+                },
+                icon: Icon(BottomIcons.fi_rr_star,
+                    color: favorites[listIndex]
+                        ? Theme.of(context).primaryColor
+                        : Colors.grey),
                 iconSize: 30,
               )
             ],
@@ -125,9 +152,10 @@ class _AddFavoriteState extends State<AddFavorite> {
               centerTitle: true,
               backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               elevation: 0,
-              title: Container(
+              leading: Container(
+                padding: EdgeInsets.only(left: 50),
                 height: 50,
-                width: 300,
+                width: 250,
                 child: Center(
                   child: TextField(
                     textCapitalization: TextCapitalization.characters,
@@ -148,13 +176,23 @@ class _AddFavoriteState extends State<AddFavorite> {
                                 BorderRadius.all(Radius.circular(30))),
                         hintText: 'Search',
                         hintStyle: TextStyle(
-                            color: Colors.grey,
+                            color: Colors.black,
                             fontFamily: 'Poppins',
                             fontSize: 12)),
                   ),
                 ),
               ),
               actions: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 4.0, right: 5),
+                  child: InkWell(
+                      child: Container(
+                          height: 28,
+                          width: 28,
+                          child: Image(
+                              image: AssetImage('assets/icons/settings.png'))),
+                      onTap: () => _selectSortBy()),
+                ),
                 IconButton(
                     onPressed: _selectAssetClass,
                     icon: Icon(

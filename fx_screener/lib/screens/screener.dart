@@ -13,7 +13,7 @@ class Screener extends StatefulWidget {
 
 class _ScreenerState extends State<Screener> {
   late List<CurrencyPairData> _ccyPair;
-
+  double width = 0;
   @override
   void initState() {
     super.initState();
@@ -70,132 +70,159 @@ class _ScreenerState extends State<Screener> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 5),
       child: Container(
-        decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(15)),
-        padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10),
-        height: 80,
-        width: double.infinity,
-        child: Stack(
-          children: [
-            Positioned(
-              left: 20,
-              top: 20,
-              child: Container(
-                height: 50,
-                width: 50,
-                child: Image(
-                    image: AssetImage('assets/flags/' +
-                        _ccyPair[listIndex].currencyTwo +
-                        '.png')),
+          decoration: BoxDecoration(
+              color: Colors.white, borderRadius: BorderRadius.circular(15)),
+          padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10),
+          height: 80,
+          width: double.infinity,
+          child: Stack(
+            children: [
+              Positioned(
+                left: 20,
+                top: 20,
+                child: Container(
+                  height: 50,
+                  width: 50,
+                  child: Image(
+                      image: AssetImage('assets/flags/' +
+                          _ccyPair[listIndex].currencyTwo +
+                          '.png')),
+                ),
               ),
-            ),
-            Positioned(
-              child: Container(
-                height: 50,
-                width: 50,
-                child: Image(
-                    image: AssetImage('assets/flags/' +
-                        _ccyPair[listIndex].currencyOne +
-                        '.png')),
+              Positioned(
+                child: Container(
+                  height: 50,
+                  width: 50,
+                  child: Image(
+                      image: AssetImage('assets/flags/' +
+                          _ccyPair[listIndex].currencyOne +
+                          '.png')),
+                ),
               ),
-            ),
-            Positioned(
-              left: 90,
-              top: 10,
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      _ccyPair[listIndex].currencyOne +
-                          _ccyPair[listIndex].currencyTwo,
-                      style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20),
-                    ),
-                    Text(
-                      'Updated 00.35 hours ago',
-                      style: TextStyle(fontFamily: 'Poppins', fontSize: 12),
-                    ),
-                  ]),
-            ),
-            Positioned(
-                right: 1,
+              Positioned(
+                left: 90,
+                top: 10,
                 child: Column(
-                  children: [
-                    Container(
-                        height: 45,
-                        width: 45,
-                        child:
-                            Image(image: AssetImage('assets/patterns/RE.png'))),
-                    Text(
-                      'Rectangle',
-                      style: TextStyle(fontFamily: 'Poppins', fontSize: 12),
-                    )
-                  ],
-                ))
-          ],
-        ),
-      ),
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        _ccyPair[listIndex].currencyOne +
+                            _ccyPair[listIndex].currencyTwo,
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20),
+                      ),
+                      Text(
+                        'Updated 00.35 hours ago',
+                        style: TextStyle(fontFamily: 'Poppins', fontSize: 12),
+                      ),
+                    ]),
+              ),
+              Positioned(
+                  right: 1,
+                  child: Column(
+                    children: [
+                      Container(
+                          height: 45,
+                          width: 45,
+                          child: Image(
+                              image: AssetImage('assets/patterns/RE.png'))),
+                      Text(
+                        'Rectangle',
+                        style: TextStyle(fontFamily: 'Poppins', fontSize: 12),
+                      )
+                    ],
+                  ))
+            ],
+          )),
     );
   }
 
   @override
   Widget build(BuildContext context) {
+    width = MediaQuery.of(context).size.width;
+
     return SafeArea(
         child: Scaffold(
-            appBar: AppBar(
-                elevation: 0,
-                backgroundColor: Colors.white,
-                actions: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 5.0),
-                    child: InkWell(
-                        child: Container(
-                          margin: EdgeInsets.all(14),
-                          child: Text(
-                            DURATION1D,
-                            style: TextStyle(color: Colors.black, fontSize: 16),
+            appBar: PreferredSize(
+              preferredSize: Size.fromHeight(55.0),
+              child: AppBar(
+                  elevation: 0,
+                  backgroundColor: Colors.white,
+                  actions: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 5.0),
+                      child: InkWell(
+                          child: Container(
+                            margin: EdgeInsets.all(14),
+                            child: Text(
+                              DURATION1D,
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 16),
+                            ),
                           ),
-                        ),
-                        onTap: () => _selectDuration()),
-                  ),
-                  Padding(
+                          onTap: () => _selectDuration()),
+                    ),
+                    Padding(
+                        padding: const EdgeInsets.only(top: 5.0, right: 10),
+                        child: IconButton(
+                            onPressed: _selectAssetClass,
+                            icon: Icon(
+                              Icons.filter_alt_outlined,
+                              color: Colors.black,
+                            ))),
+                    Padding(
                       padding: const EdgeInsets.only(top: 5.0, right: 10),
-                      child: IconButton(
-                          onPressed: _selectAssetClass,
-                          icon: Icon(
-                            Icons.filter_alt_outlined,
-                            color: Colors.black,
-                          ))),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 5.0, right: 10),
-                    child: InkWell(
-                        child: Container(
-                            height: 30,
-                            width: 30,
-                            child: Image(
-                                image:
-                                    AssetImage('assets/icons/settings.png'))),
-                        onTap: () => _selectSortBy()),
-                  ),
-                ],
-                leading: Container(
-                  height: 10,
-                  width: 30,
-                  child: Builder(
-                      builder: (context) => // Ensure Scaffold is in context
-                          InkWell(
+                      child: InkWell(
+                          child: Container(
+                              height: 30,
+                              width: 30,
                               child: Image(
-                                  image: AssetImage('assets/icons/menu.png')),
-                              onTap: () => Scaffold.of(context).openDrawer())),
-                )),
+                                  image:
+                                      AssetImage('assets/icons/settings.png'))),
+                          onTap: () => _selectSortBy()),
+                    ),
+                  ],
+                  leading: Container(
+                    height: 10,
+                    width: 30,
+                    child: Builder(
+                        builder: (context) => // Ensure Scaffold is in context
+                            InkWell(
+                                child: Image(
+                                    image: AssetImage('assets/icons/menu.png')),
+                                onTap: () =>
+                                    Scaffold.of(context).openDrawer())),
+                  )),
+            ),
             drawer: AppDrawer(),
-            body: Container(
-                // color: backGroundColor,
-                color: Color(0xffF7F8FB),
-                child: ListView.builder(
-                    itemCount: _ccyPair.length,
-                    itemBuilder: buildCurrencyPairList))));
+            body: Stack(children: [
+              Positioned(
+                top: 0,
+                child: Container(
+                    height: MediaQuery.of(context).size.height -
+                        50 -
+                        (width * 2 / 4),
+                    width: width,
+                    color: Color(0xffF7F8FB),
+                    child: ListView.builder(
+                        itemCount: _ccyPair.length,
+                        itemBuilder: buildCurrencyPairList)),
+              ),
+              Positioned(
+                  child: Container(
+                    height: width * 2.05 / 4,
+                    width: width,
+                    decoration: BoxDecoration(
+                      border: Border.all(width: 1, color: Colors.black),
+                    ),
+                    child: Image(
+                      fit: BoxFit.fill,
+                      image: AssetImage('assets/banners/banner.png'),
+                    ),
+                  ),
+                  bottom: 0)
+            ])));
   }
 }

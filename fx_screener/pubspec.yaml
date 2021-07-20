@@ -19,7 +19,7 @@ dependencies:
   provider: ^5.0.0
   candlesticks: ^0.5.0
   webview_flutter: ^2.0.10
-  convex_bottom_bar: ^3.0.0
+  video_player: ^2.1.10
 
 dev_dependencies:
   flutter_test:
@@ -32,6 +32,8 @@ flutter:
     - assets/icons/
     - assets/flags/
     - assets/patterns/
+    - assets/videos/
+    - assets/banners/
 
   fonts:
     - family: BottomIcons

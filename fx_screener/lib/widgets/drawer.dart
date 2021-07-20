@@ -70,7 +70,7 @@ class _AppDrawerState extends State<AppDrawer> {
                   children: [
                     Icon(Icons.shopping_cart),
                     Text(
-                      ' Buy Subscription',
+                      ' Purchase',
                       style: TextStyle(
                         fontFamily: 'Poppins',
                         fontSize: 18,

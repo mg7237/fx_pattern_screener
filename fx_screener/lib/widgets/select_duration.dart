@@ -14,7 +14,7 @@ class SelectDuration extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         color: Theme.of(context).scaffoldBackgroundColor,
       ),
-      height: 300,
+      height: 330,
       width: 200,
       child: Column(
         children: [
@@ -41,9 +41,25 @@ class SelectDuration extends StatelessWidget {
                           durationSelected(index);
                           Navigator.pop(context);
                         },
-                        child: Text(DURATION_LIST[index],
-                            style: TextStyle(
-                                fontSize: 16, fontFamily: 'Poppins'))),
+                        child: Row(
+                          children: [
+                            Container(
+                              child: Image(
+                                  image: (DURATION_LIST[index] != '1 day')
+                                      ? AssetImage('assets/icons/locked.png')
+                                      : AssetImage(
+                                          'assets/icons/unlocked.png')),
+                              height: 30,
+                              width: 30,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(DURATION_LIST[index],
+                                style: TextStyle(
+                                    fontSize: 16, fontFamily: 'Poppins')),
+                          ],
+                        )),
                   ));
                 },
                 separatorBuilder: (BuildContext context, int index) {

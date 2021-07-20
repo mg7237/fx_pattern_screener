@@ -56,14 +56,19 @@ class _PatternState extends State<Pattern> {
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.lock_open, color: Color(0xff1DBF73)),
+                        Container(
+                          child: Image(
+                              image: AssetImage('assets/icons/locked.png')),
+                          height: 30,
+                          width: 30,
+                        ),
                         SizedBox(width: 10),
                         Text('All Type', style: style),
                       ],
                     ),
                     Switch(
-                        value: allType,
-                        onChanged: (value) => changeAllSwitch(value))
+                        value: false,
+                        onChanged: null) // (value) => changeAllSwitch(value))
                   ],
                 ),
               ),
@@ -78,7 +83,13 @@ class _PatternState extends State<Pattern> {
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.lock_open, color: Color(0xff1DBF73)),
+                        Container(
+                            height: 30,
+                            width: 30,
+                            child: Image(
+                                image:
+                                    AssetImage('assets/icons/unlocked.png'))),
+                        // Icon(Icons.lock_open, color: Color(0xff1DBF73)),
                         SizedBox(width: 10),
                         Text('Rectangle', style: style),
                       ],
@@ -102,7 +113,12 @@ class _PatternState extends State<Pattern> {
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.lock_open, color: Color(0xff1DBF73)),
+                        Container(
+                          child: Image(
+                              image: AssetImage('assets/icons/locked.png')),
+                          height: 30,
+                          width: 30,
+                        ),
                         SizedBox(width: 10),
                         Text('Triangle', style: style),
                       ],
@@ -126,7 +142,12 @@ class _PatternState extends State<Pattern> {
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.lock_open, color: Color(0xff1DBF73)),
+                        Container(
+                          child: Image(
+                              image: AssetImage('assets/icons/locked.png')),
+                          height: 30,
+                          width: 30,
+                        ),
                         SizedBox(width: 10),
                         Text('Wedge', style: style),
                       ],
@@ -150,7 +171,12 @@ class _PatternState extends State<Pattern> {
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.lock_open, color: Color(0xff1DBF73)),
+                        Container(
+                          child: Image(
+                              image: AssetImage('assets/icons/locked.png')),
+                          height: 30,
+                          width: 30,
+                        ),
                         SizedBox(width: 10),
                         Text('Flag', style: style),
                       ],
@@ -174,7 +200,12 @@ class _PatternState extends State<Pattern> {
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.lock_open, color: Color(0xff1DBF73)),
+                        Container(
+                          child: Image(
+                              image: AssetImage('assets/icons/locked.png')),
+                          height: 30,
+                          width: 30,
+                        ),
                         SizedBox(width: 10),
                         Text('Pennant', style: style),
                       ],
@@ -198,7 +229,12 @@ class _PatternState extends State<Pattern> {
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.lock_open, color: Color(0xff1DBF73)),
+                        Container(
+                          child: Image(
+                              image: AssetImage('assets/icons/locked.png')),
+                          height: 30,
+                          width: 30,
+                        ),
                         SizedBox(width: 10),
                         Text('Head and Shoulders', style: style),
                       ],
@@ -222,7 +258,12 @@ class _PatternState extends State<Pattern> {
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.lock_open, color: Color(0xff1DBF73)),
+                        Container(
+                          child: Image(
+                              image: AssetImage('assets/icons/locked.png')),
+                          height: 30,
+                          width: 30,
+                        ),
                         SizedBox(width: 10),
                         Text('Double Top /Bottom', style: style),
                       ],
@@ -246,7 +287,12 @@ class _PatternState extends State<Pattern> {
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.lock_open, color: Color(0xff1DBF73)),
+                        Container(
+                          child: Image(
+                              image: AssetImage('assets/icons/locked.png')),
+                          height: 30,
+                          width: 30,
+                        ),
                         SizedBox(width: 10),
                         Text('Triple Top and Bottom', style: style),
                       ],
@@ -270,7 +316,12 @@ class _PatternState extends State<Pattern> {
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.lock_open, color: Color(0xff1DBF73)),
+                        Container(
+                          child: Image(
+                              image: AssetImage('assets/icons/locked.png')),
+                          height: 30,
+                          width: 30,
+                        ),
                         SizedBox(width: 10),
                         Text('Butterfly', style: style),
                       ],

@@ -4,7 +4,8 @@ import 'package:fx_screener/screens/add_favorite.dart';
 import 'package:fx_screener/screens/pattern.dart';
 import 'package:fx_screener/screens/chart.dart';
 import 'package:fx_screener/custom_icons/bottom_icons.dart';
-import 'package:convex_bottom_bar/convex_bottom_bar.dart';
+import 'package:fx_screener/screens/video_player.dart';
+import 'dart:async';
 
 class HomePage extends StatefulWidget {
   @override
@@ -44,63 +45,46 @@ class _HomePageState extends State<HomePage> {
   void onTabTapped(int index) {
     setState(() {
       _currentIndex = index;
-      pageController.jumpToPage(index);
+      if (index == 1) {
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => VideoApp()));
+        Timer(Duration(seconds: 1), () => pageController.jumpToPage(index));
+      } else {
+        pageController.jumpToPage(index);
+      }
     });
   }
 
   _buildBottomBar() {
-    return Stack(children: [
-      Positioned(
-        child: StyleProvider(
-            style: Style(),
-            child: ConvexAppBar(
-                height: 60,
-                style: TabStyle.reactCircle,
-                backgroundColor: Colors.white,
-                onTap: (int i) {
-                  print("object $i");
-                  onTabTapped(i);
-                },
-                items: [
-                  TabItem(
-                      title: 'Screener',
-                      icon: Icon(BottomIcons.fi_rr_crown,
-                          size: (_currentIndex == 0) ? 30 : 25,
-                          color: (_currentIndex == 0)
-                              ? Theme.of(context).primaryColor
-                              : Color(0xff868A9A))),
-                  TabItem(
-                      title: 'Chart',
-                      icon: Icon(BottomIcons.fi_rr_stats,
-                          size: (_currentIndex == 1) ? 30 : 25,
-                          color: (_currentIndex == 1)
-                              ? Theme.of(context).primaryColor
-                              : Color(0xff868A9A))),
-                  TabItem(
-                      title: 'Pattern',
-                      icon: Icon(BottomIcons.fi_rr_pulse,
-                          size: (_currentIndex == 2) ? 30 : 25,
-                          color: (_currentIndex == 2)
-                              ? Theme.of(context).primaryColor
-                              : Color(0xff868A9A))),
-                  TabItem(
-                      title: 'Favorite',
-                      icon: Icon(BottomIcons.fi_rr_star,
-                          size: (_currentIndex == 3) ? 30 : 25,
-                          color: (_currentIndex == 3)
-                              ? Theme.of(context).primaryColor
-                              : Color(0xff868A9A)))
-                ])),
-      ),
-      Positioned(
-          child: Container(
-            height: 1,
-            width: 200,
-            color: Theme.of(context).primaryColor,
-          ),
-          bottom: 0,
-          left: (MediaQuery.of(context).size.width / 2) - 100)
-    ]);
+    return BottomNavigationBar(
+        elevation: 15,
+        backgroundColor: Colors.white,
+        selectedFontSize: 14,
+        unselectedFontSize: 12,
+        selectedItemColor: Theme.of(context).primaryColor,
+        unselectedItemColor: Colors.grey[400],
+        onTap: onTabTapped,
+        currentIndex: _currentIndex,
+        type: BottomNavigationBarType.fixed,
+        selectedIconTheme:
+            IconThemeData(color: Theme.of(context).primaryColor, size: 30),
+        unselectedIconTheme: IconThemeData(color: Colors.grey[400], size: 25),
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+              label: 'Screener', icon: Icon(BottomIcons.fi_rr_crown)),
+          BottomNavigationBarItem(
+              label: 'Chart', icon: Icon(BottomIcons.fi_rr_stats)),
+          BottomNavigationBarItem(
+              label: 'Pattern',
+              icon: Icon(
+                BottomIcons.fi_rr_pulse,
+              )),
+          BottomNavigationBarItem(
+              label: 'Favorite',
+              icon: Icon(
+                BottomIcons.fi_rr_star,
+              ))
+        ]);
   }
 
   @override
@@ -113,21 +97,5 @@ class _HomePageState extends State<HomePage> {
           physics: NeverScrollableScrollPhysics()),
       bottomNavigationBar: _buildBottomBar(),
     ));
-  }
-}
-
-class Style extends StyleHook {
-  @override
-  double get activeIconSize => 40;
-
-  @override
-  double get activeIconMargin => 10;
-
-  @override
-  double get iconSize => 20;
-
-  @override
-  TextStyle textStyle(Color color) {
-    return TextStyle(fontSize: 12, color: Colors.black);
   }
 }

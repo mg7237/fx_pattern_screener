@@ -10,113 +10,6 @@ class CandleChart extends StatefulWidget {
 
 class _CandleChartState extends State<CandleChart> {
   List<Candle> candles = [];
-  // [
-  //   Candle(
-  //       date: DateTime.parse("2021-05-16T11:00:00.000Z"),
-  //       open: 50.0,
-  //       high: 100.0,
-  //       low: 40.0,
-  //       close: 80,
-  //       volume: 5000.0),
-  //   Candle(
-  //       date: DateTime.parse("2021-05-17T11:00:00.000Z"),
-  //       open: 80.0,
-  //       high: 90.0,
-  //       low: 55.0,
-  //       close: 65,
-  //       volume: 4000.0),
-  //   Candle(
-  //       date: DateTime.parse("2021-05-18T11:00:00.000Z"),
-  //       open: 65.0,
-  //       high: 120.0,
-  //       low: 60.0,
-  //       close: 90,
-  //       volume: 7000.0),
-  //   Candle(
-  //       date: DateTime.parse("2021-05-19T11:00:00.000Z"),
-  //       open: 90.0,
-  //       high: 95.0,
-  //       low: 85.0,
-  //       close: 80,
-  //       volume: 2000.0),
-  //   Candle(
-  //       date: DateTime.parse("2021-05-20T11:00:00.000Z"),
-  //       open: 80.0,
-  //       high: 85.0,
-  //       low: 40.0,
-  //       close: 50,
-  //       volume: 3000.0),
-  //   Candle(
-  //       date: DateTime.parse("2021-05-21T11:00:00.000Z"),
-  //       open: 50.0,
-  //       high: 100.0,
-  //       low: 40.0,
-  //       close: 80,
-  //       volume: 5000.0),
-  //   Candle(
-  //       date: DateTime.parse("2021-05-22T11:00:00.000Z"),
-  //       open: 80.0,
-  //       high: 90.0,
-  //       low: 55.0,
-  //       close: 65,
-  //       volume: 4000.0),
-  //   Candle(
-  //       date: DateTime.parse("2021-05-23T11:00:00.000Z"),
-  //       open: 65.0,
-  //       high: 120.0,
-  //       low: 60.0,
-  //       close: 90,
-  //       volume: 7000.0),
-  //   Candle(
-  //       date: DateTime.parse("2021-05-24T11:00:00.000Z"),
-  //       open: 90.0,
-  //       high: 95.0,
-  //       low: 85.0,
-  //       close: 80,
-  //       volume: 2000.0),
-  //   Candle(
-  //       date: DateTime.parse("2021-05-25T11:00:00.000Z"),
-  //       open: 80.0,
-  //       high: 85.0,
-  //       low: 40.0,
-  //       close: 50,
-  //       volume: 3000.0),
-  //   Candle(
-  //       date: DateTime.parse("2021-05-26T11:00:00.000Z"),
-  //       open: 50.0,
-  //       high: 100.0,
-  //       low: 40.0,
-  //       close: 80,
-  //       volume: 5000.0),
-  //   Candle(
-  //       date: DateTime.parse("2021-05-27T11:00:00.000Z"),
-  //       open: 80.0,
-  //       high: 90.0,
-  //       low: 55.0,
-  //       close: 65,
-  //       volume: 4000.0),
-  //   Candle(
-  //       date: DateTime.parse("2021-05-28T11:00:00.000Z"),
-  //       open: 65.0,
-  //       high: 120.0,
-  //       low: 60.0,
-  //       close: 90,
-  //       volume: 7000.0),
-  //   Candle(
-  //       date: DateTime.parse("2021-05-29T11:00:00.000Z"),
-  //       open: 90.0,
-  //       high: 95.0,
-  //       low: 85.0,
-  //       close: 80,
-  //       volume: 2000.0),
-  //   Candle(
-  //       date: DateTime.parse("2021-05-30T11:00:00.000Z"),
-  //       open: 80.0,
-  //       high: 85.0,
-  //       low: 40.0,
-  //       close: 50,
-  //       volume: 3000.0),
-  // ];
 
   List<Candle> getCandles() {
     final List<Candle> output = [];
@@ -141,8 +34,11 @@ class _CandleChartState extends State<CandleChart> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-        body: new Container(
+    return SafeArea(
+      child:
+          Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+        Container(
+            height: (MediaQuery.of(context).size.height - 150) / 2,
             color: Color(0xffF7F8FB),
             child: new Center(
               child: AspectRatio(
@@ -151,6 +47,23 @@ class _CandleChartState extends State<CandleChart> {
                   candles: candles,
                 ),
               ),
-            )));
+            )),
+        RotationTransition(
+          turns: AlwaysStoppedAnimation(270 / 360),
+          child: Container(
+              alignment: Alignment.topCenter,
+              height: (MediaQuery.of(context).size.height - 50) / 2,
+              color: Color(0xffF7F8FB),
+              child: new Center(
+                child: AspectRatio(
+                  aspectRatio: 1.2,
+                  child: Candlesticks(
+                    candles: candles,
+                  ),
+                ),
+              )),
+        )
+      ]),
+    );
   }
 }
