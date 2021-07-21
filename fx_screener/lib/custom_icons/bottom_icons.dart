@@ -11,7 +11,7 @@
 ///      fonts:
 ///       - asset: fonts/BottomIcons.ttf
 ///
-///
+/// 
 ///
 import 'package:flutter/widgets.dart';
 
@@ -21,12 +21,9 @@ class BottomIcons {
   static const _kFontFam = 'BottomIcons';
   static const String? _kFontPkg = null;
 
-  static const IconData fi_rr_pulse =
-      IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData fi_rr_crown =
-      IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData fi_rr_star =
-      IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData fi_rr_stats =
-      IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData fi_rr_pulse = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData fi_rr_crown = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData fi_rr_interlining = IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData fi_rr_star = IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData fi_rr_stats = IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

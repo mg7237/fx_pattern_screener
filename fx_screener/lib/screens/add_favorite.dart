@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fx_screener/models/currency_pair.dart';
 import 'package:fx_screener/widgets/select_asset.dart';
 import 'package:fx_screener/custom_icons/bottom_icons.dart';
-import 'package:fx_screener/widgets/select_sort.dart';
+import 'package:fx_screener/widgets/select_sort_fav.dart';
 
 class AddFavorite extends StatefulWidget {
   const AddFavorite({Key? key}) : super(key: key);
@@ -149,13 +149,17 @@ class _AddFavoriteState extends State<AddFavorite> {
     return SafeArea(
         child: Scaffold(
             appBar: AppBar(
-              centerTitle: true,
+              leading: IconButton(
+                  icon: Icon(Icons.arrow_back_ios),
+                  color: Colors.black,
+                  onPressed: () => Navigator.of(context).pop()),
+              centerTitle: false,
               backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               elevation: 0,
-              leading: Container(
+              title: Container(
                 padding: EdgeInsets.only(left: 50),
                 height: 50,
-                width: 250,
+                width: 300,
                 child: Center(
                   child: TextField(
                     textCapitalization: TextCapitalization.characters,
@@ -184,21 +188,18 @@ class _AddFavoriteState extends State<AddFavorite> {
               ),
               actions: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 4.0, right: 5),
-                  child: InkWell(
-                      child: Container(
-                          height: 28,
-                          width: 28,
-                          child: Image(
-                              image: AssetImage('assets/icons/settings.png'))),
-                      onTap: () => _selectSortBy()),
-                ),
-                IconButton(
-                    onPressed: _selectAssetClass,
-                    icon: Icon(
-                      Icons.filter_alt_outlined,
+                    padding: const EdgeInsets.only(top: 4.0, right: 15),
+                    child: IconButton(
                       color: Colors.black,
-                    ))
+                      icon: Icon(BottomIcons.fi_rr_interlining),
+                      onPressed: () => _selectSortBy(),
+                    )),
+                // IconButton(
+                //     onPressed: _selectAssetClass,
+                //     icon: Icon(
+                //       Icons.filter_alt_outlined,
+                //       color: Colors.black,
+                //     ))
               ],
             ),
             body: Container(

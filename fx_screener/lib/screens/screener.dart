@@ -3,8 +3,9 @@ import 'package:fx_screener/util/constants.dart';
 import 'package:fx_screener/models/currency_pair.dart';
 import 'package:fx_screener/widgets/select_duration.dart';
 import 'package:fx_screener/widgets/select_sort.dart';
-import 'package:fx_screener/widgets/select_asset.dart';
 import 'package:fx_screener/widgets/drawer.dart';
+import 'package:fx_screener/screens/add_favorite.dart';
+import 'package:fx_screener/custom_icons/bottom_icons.dart';
 
 class Screener extends StatefulWidget {
   @override
@@ -19,21 +20,6 @@ class _ScreenerState extends State<Screener> {
     super.initState();
     _ccyPair = getCurrencyPairData();
   }
-
-  void _selectAssetClass() {
-    showDialog(
-        context: context,
-        builder: (_) {
-          return AlertDialog(
-            elevation: 10,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(20.0))),
-            content: SelectAsset(assetSelected: _assetClassSelected),
-          );
-        });
-  }
-
-  void _assetClassSelected(int index) {}
 
   void _selectDuration() {
     showDialog(
@@ -167,22 +153,21 @@ class _ScreenerState extends State<Screener> {
                     Padding(
                         padding: const EdgeInsets.only(top: 5.0, right: 10),
                         child: IconButton(
-                            onPressed: _selectAssetClass,
+                            onPressed: () => _selectSortBy(),
                             icon: Icon(
-                              Icons.filter_alt_outlined,
+                              BottomIcons.fi_rr_interlining,
                               color: Colors.black,
                             ))),
                     Padding(
-                      padding: const EdgeInsets.only(top: 5.0, right: 10),
-                      child: InkWell(
-                          child: Container(
-                              height: 30,
-                              width: 30,
-                              child: Image(
-                                  image:
-                                      AssetImage('assets/icons/settings.png'))),
-                          onTap: () => _selectSortBy()),
-                    ),
+                        padding: const EdgeInsets.only(top: 5.0, right: 10),
+                        child: IconButton(
+                            onPressed: () => Navigator.of(context).push(
+                                MaterialPageRoute(
+                                    builder: (context) => AddFavorite())),
+                            icon: Icon(
+                              BottomIcons.fi_rr_star,
+                              color: Colors.black,
+                            ))),
                   ],
                   leading: Container(
                     height: 10,
@@ -198,31 +183,28 @@ class _ScreenerState extends State<Screener> {
             ),
             drawer: AppDrawer(),
             body: Stack(children: [
-              Positioned(
-                top: 0,
-                child: Container(
-                    height: MediaQuery.of(context).size.height -
-                        50 -
-                        (width * 2 / 4),
-                    width: width,
-                    color: Color(0xffF7F8FB),
-                    child: ListView.builder(
-                        itemCount: _ccyPair.length,
-                        itemBuilder: buildCurrencyPairList)),
-              ),
-              Positioned(
-                  child: Container(
-                    height: width * 2.05 / 4,
-                    width: width,
-                    decoration: BoxDecoration(
-                      border: Border.all(width: 1, color: Colors.black),
-                    ),
-                    child: Image(
-                      fit: BoxFit.fill,
-                      image: AssetImage('assets/banners/banner.png'),
-                    ),
-                  ),
-                  bottom: 0)
+              Container(
+                  // height: MediaQuery.of(context).size.height -
+                  //     50 -
+                  //     (width * 2 / 4),
+                  // width: width,
+                  color: Color(0xffF7F8FB),
+                  child: ListView.builder(
+                      itemCount: _ccyPair.length,
+                      itemBuilder: buildCurrencyPairList)),
+              // Positioned(
+              // child: Container(
+              //   height: width * 2.05 / 4,
+              //   width: width,
+              //   decoration: BoxDecoration(
+              //     border: Border.all(width: 1, color: Colors.black),
+              //   ),
+              //   child: Image(
+              //     fit: BoxFit.fill,
+              //     image: AssetImage('assets/banners/banner.png'),
+              //   ),
+              // ),
+              // bottom: 0)
             ])));
   }
 }

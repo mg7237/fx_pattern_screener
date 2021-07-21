@@ -35,35 +35,19 @@ class _CandleChartState extends State<CandleChart> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child:
-          Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        Container(
-            height: (MediaQuery.of(context).size.height - 150) / 2,
-            color: Color(0xffF7F8FB),
-            child: new Center(
-              child: AspectRatio(
-                aspectRatio: 1.2,
-                child: Candlesticks(
-                  candles: candles,
-                ),
+        child: RotationTransition(
+      turns: AlwaysStoppedAnimation(270 / 360),
+      child: Container(
+          alignment: Alignment.topCenter,
+          color: Color(0xffF7F8FB),
+          child: new Center(
+            child: AspectRatio(
+              aspectRatio: 1.2,
+              child: Candlesticks(
+                candles: candles,
               ),
-            )),
-        RotationTransition(
-          turns: AlwaysStoppedAnimation(270 / 360),
-          child: Container(
-              alignment: Alignment.topCenter,
-              height: (MediaQuery.of(context).size.height - 50) / 2,
-              color: Color(0xffF7F8FB),
-              child: new Center(
-                child: AspectRatio(
-                  aspectRatio: 1.2,
-                  child: Candlesticks(
-                    candles: candles,
-                  ),
-                ),
-              )),
-        )
-      ]),
-    );
+            ),
+          )),
+    ));
   }
 }

@@ -20,19 +20,16 @@ class _HomePageState extends State<HomePage> {
   late Screener screener;
   late CandleChart chart;
   late Pattern pattern;
-  late AddFavorite addFavorite;
 
   void _buildChildrenList() {
     screener = Screener();
     chart = CandleChart();
     pattern = Pattern();
-    addFavorite = AddFavorite();
 
     _children = [
       screener,
       chart,
       pattern,
-      addFavorite,
     ];
   }
 
@@ -45,13 +42,14 @@ class _HomePageState extends State<HomePage> {
   void onTabTapped(int index) {
     setState(() {
       _currentIndex = index;
-      if (index == 1) {
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => VideoApp()));
-        Timer(Duration(seconds: 1), () => pageController.jumpToPage(index));
-      } else {
-        pageController.jumpToPage(index);
-      }
+      pageController.jumpToPage(index);
+      // if (index == 1) {
+      //   // Navigator.of(context)
+      //   //     .push(MaterialPageRoute(builder: (context) => VideoApp()));
+      //   // Timer(Duration(seconds: 1), () => pageController.jumpToPage(index));
+      // } else {
+
+      // }
     });
   }
 
@@ -79,11 +77,6 @@ class _HomePageState extends State<HomePage> {
               icon: Icon(
                 BottomIcons.fi_rr_pulse,
               )),
-          BottomNavigationBarItem(
-              label: 'Favorite',
-              icon: Icon(
-                BottomIcons.fi_rr_star,
-              ))
         ]);
   }
 
