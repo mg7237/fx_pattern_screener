@@ -3,6 +3,7 @@ import 'package:fx_screener/screens/screener.dart';
 import 'package:fx_screener/screens/add_favorite.dart';
 import 'package:fx_screener/screens/pattern.dart';
 import 'package:fx_screener/screens/chart.dart';
+import 'package:fx_screener/screens/sf_chart.dart';
 import 'package:fx_screener/custom_icons/bottom_icons.dart';
 import 'package:fx_screener/screens/video_player.dart';
 import 'dart:async';
@@ -18,12 +19,12 @@ class _HomePageState extends State<HomePage> {
   final pageController = PageController();
   List<Widget> _children = [];
   late Screener screener;
-  late CandleChart chart;
+  late SfChart chart;
   late Pattern pattern;
 
   void _buildChildrenList() {
     screener = Screener();
-    chart = CandleChart();
+    chart = SfChart();
     pattern = Pattern();
 
     _children = [

@@ -14,7 +14,7 @@ class _CandleChartState extends State<CandleChart> {
   List<Candle> getCandles() {
     final List<Candle> output = [];
     final time = DateTime.now();
-    for (int i = 0; i < 500; i++) {
+    for (int i = 0; i < 50; i++) {
       output.add(Candle(
           open: 1700 + i * 20,
           high: 1800 + i * 20 + 0.0000001,
