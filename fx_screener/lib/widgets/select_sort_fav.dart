@@ -9,7 +9,9 @@ class SelectSort extends StatelessWidget {
     const List<String> SORT_LIST = ['Alphabet', 'Type'];
     return Container(
       padding: const EdgeInsets.all(12.0),
-      color: Theme.of(context).scaffoldBackgroundColor,
+      decoration: BoxDecoration(
+          color: Theme.of(context).scaffoldBackgroundColor,
+          borderRadius: BorderRadius.circular(15)),
       height: 220,
       width: 150,
       child: Column(

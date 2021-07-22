@@ -26,4 +26,5 @@ class BottomIcons {
   static const IconData fi_rr_interlining = IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData fi_rr_star = IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData fi_rr_stats = IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData fi_sr_star = IconData(0xe805, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

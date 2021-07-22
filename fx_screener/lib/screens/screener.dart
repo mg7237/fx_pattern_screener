@@ -15,6 +15,7 @@ class Screener extends StatefulWidget {
 class _ScreenerState extends State<Screener> {
   late List<CurrencyPairData> _ccyPair;
   double width = 0;
+  Color? grey = Colors.grey; // Color(0xFF868A9A);
   @override
   void initState() {
     super.initState();
@@ -132,8 +133,8 @@ class _ScreenerState extends State<Screener> {
     return SafeArea(
         child: Scaffold(
             appBar: PreferredSize(
-              preferredSize: Size.fromHeight(55.0),
-              child: AppBar(
+                preferredSize: Size.fromHeight(55.0),
+                child: AppBar(
                   elevation: 0,
                   backgroundColor: Colors.white,
                   actions: [
@@ -144,8 +145,8 @@ class _ScreenerState extends State<Screener> {
                             margin: EdgeInsets.all(14),
                             child: Text(
                               DURATION1D,
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 16),
+                              style: TextStyle(
+                                  color: Colors.grey[600], fontSize: 16),
                             ),
                           ),
                           onTap: () => _selectDuration()),
@@ -156,7 +157,7 @@ class _ScreenerState extends State<Screener> {
                             onPressed: () => _selectSortBy(),
                             icon: Icon(
                               BottomIcons.fi_rr_interlining,
-                              color: Colors.black,
+                              color: Colors.grey[600],
                             ))),
                     Padding(
                         padding: const EdgeInsets.only(top: 5.0, right: 10),
@@ -166,21 +167,31 @@ class _ScreenerState extends State<Screener> {
                                     builder: (context) => AddFavorite())),
                             icon: Icon(
                               BottomIcons.fi_rr_star,
-                              color: Colors.black,
+                              color: Colors.grey[600],
                             ))),
                   ],
-                  leading: Container(
-                    height: 10,
-                    width: 30,
-                    child: Builder(
-                        builder: (context) => // Ensure Scaffold is in context
-                            InkWell(
-                                child: Image(
-                                    image: AssetImage('assets/icons/menu.png')),
-                                onTap: () =>
-                                    Scaffold.of(context).openDrawer())),
-                  )),
-            ),
+                  leading: IconButton(
+                    icon: Icon(
+                      Icons.menu,
+                      color: Colors.grey[600],
+                      size: 25,
+                    ),
+                    onPressed: () => print(""),
+                  ),
+                )),
+            // leading: Container(
+            //         height: 10,
+            //         width: 30,
+            //         child: Builder(
+            //             builder: (context) => // Ensure Scaffold is in context
+            //                 InkWell(
+            //                     child: Image(
+            //                         image: AssetImage(
+            //                             'assets/icons/menu_grey.png')),
+            //                     onTap: () =>
+            //                         Scaffold.of(context).openDrawer())),
+            //       )),
+            // ),
             drawer: AppDrawer(),
             body: Stack(children: [
               Container(

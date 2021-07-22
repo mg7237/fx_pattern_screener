@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fx_screener/screens/screener.dart';
-import 'package:fx_screener/screens/add_favorite.dart';
 import 'package:fx_screener/screens/pattern.dart';
-import 'package:fx_screener/screens/chart.dart';
 import 'package:fx_screener/screens/sf_chart.dart';
 import 'package:fx_screener/custom_icons/bottom_icons.dart';
-import 'package:fx_screener/screens/video_player.dart';
-import 'dart:async';
 
 class HomePage extends StatefulWidget {
   @override

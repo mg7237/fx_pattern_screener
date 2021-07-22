@@ -36,128 +36,161 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Material(
-        child: Container(
+      child: Scaffold(
+        appBar: AppBar(
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+            elevation: 0,
+            leading: IconButton(
+                icon: Icon(Icons.arrow_back_ios),
+                color: Colors.grey,
+                onPressed: () => Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (_) => HomePage())))),
+        body: Container(
             color: Color(0xffF7F8FB),
             padding: EdgeInsets.only(
-                top: 30, left: ipad ? 25 : 15, right: ipad ? 25 : 15),
+                top: 15, left: ipad ? 25 : 15, right: ipad ? 25 : 15),
             child: Column(children: [
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(20)),
+                    borderRadius: BorderRadius.circular(10)),
                 child: Row(
                   children: [
                     Container(
-                        height: 30,
-                        width: 30,
-                        child:
-                            Image(image: AssetImage('assets/icons/tick.png'))),
+                        height: 22,
+                        width: 22,
+                        child: Image(
+                            image: AssetImage('assets/icons/blue_tick.png'))),
                     SizedBox(width: ipad ? 20 : 10),
-                    Text("No Ads",
-                        style: TextStyle(
-                          fontSize: ipad ? 15 : 16,
-                          color: Colors.grey[600],
-                          fontFamily: "Poppins",
-                        ))
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 1),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 3.0,
+                      ),
+                      child: Text("Remove all ads",
+                          style: TextStyle(
+                            fontSize: ipad ? 15 : 15,
+                            fontFamily: "Poppins",
+                          )),
+                    )
                   ],
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 5),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(20)),
+                    borderRadius: BorderRadius.circular(10)),
                 child: Row(
                   children: [
                     Container(
-                        height: 30,
-                        width: 30,
-                        child:
-                            Image(image: AssetImage('assets/icons/tick.png'))),
+                        height: 22,
+                        width: 22,
+                        child: Image(
+                            image: AssetImage('assets/icons/blue_tick.png'))),
                     SizedBox(width: ipad ? 20 : 10),
-                    Text("Full access to all features",
-                        style: TextStyle(
-                          fontSize: ipad ? 15 : 16,
-                          color: Colors.grey[600],
-                          fontFamily: "Poppins",
-                        ))
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 1),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 3.0,
+                      ),
+                      child: Text("Full access to all features",
+                          style: TextStyle(
+                            fontSize: ipad ? 15 : 15,
+                            fontFamily: "Poppins",
+                          )),
+                    )
                   ],
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 5),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(20)),
+                    borderRadius: BorderRadius.circular(10)),
                 child: Row(
                   children: [
                     Container(
-                        height: 30,
-                        width: 30,
-                        child:
-                            Image(image: AssetImage('assets/icons/tick.png'))),
+                        height: 22,
+                        width: 22,
+                        child: Image(
+                            image: AssetImage('assets/icons/blue_tick.png'))),
                     SizedBox(width: ipad ? 20 : 10),
-                    Text("Fx Patter Screener Chart",
-                        style: TextStyle(
-                          fontSize: ipad ? 15 : 16,
-                          color: Colors.grey[600],
-                          fontFamily: "Poppins",
-                        ))
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 1),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 3.0,
+                      ),
+                      child: Text("Unlocked all timeframes",
+                          style: TextStyle(
+                            fontSize: ipad ? 15 : 15,
+                            fontFamily: "Poppins",
+                          )),
+                    )
                   ],
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 5),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(20)),
+                    borderRadius: BorderRadius.circular(10)),
                 child: Row(
                   children: [
                     Container(
-                        height: 30,
-                        width: 30,
-                        child:
-                            Image(image: AssetImage('assets/icons/tick.png'))),
+                        height: 22,
+                        width: 22,
+                        child: Image(
+                            image: AssetImage('assets/icons/blue_tick.png'))),
                     SizedBox(width: ipad ? 20 : 10),
-                    Text("Monitoring currency fluctuation",
-                        style: TextStyle(
-                          fontSize: ipad ? 15 : 16,
-                          color: Colors.grey[600],
-                          fontFamily: "Poppins",
-                        ))
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 1),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 3.0,
+                      ),
+                      child: Text("Unlocked all chart patterns",
+                          style: TextStyle(
+                            fontSize: ipad ? 15 : 15,
+                            fontFamily: "Poppins",
+                          )),
+                    ),
                   ],
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 5),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(20)),
+                    borderRadius: BorderRadius.circular(10)),
                 child: Row(
                   children: [
                     Container(
-                        height: 30,
-                        width: 30,
-                        child:
-                            Image(image: AssetImage('assets/icons/tick.png'))),
+                        height: 22,
+                        width: 22,
+                        child: Image(
+                            image: AssetImage('assets/icons/blue_tick.png'))),
                     SizedBox(width: ipad ? 20 : 10),
-                    Text("Customizable Notifications",
-                        style: TextStyle(
-                          fontSize: ipad ? 15 : 16,
-                          color: Colors.grey[600],
-                          fontFamily: "Poppins",
-                        ))
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 1),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 3.0,
+                      ),
+                      child: Text("Keeping up-to-date all patterns",
+                          style: TextStyle(
+                            fontSize: ipad ? 15 : 15,
+                            fontFamily: "Poppins",
+                          )),
+                    )
                   ],
                 ),
               ),
@@ -165,7 +198,7 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
                 height: ipad ? 55 : 45,
               ),
               Text(
-                'Get 7-Day Free Trial',
+                'Get 3 Day Free Trial',
                 style: TextStyle(
                   fontFamily: "Poppins",
                   fontSize: 20 * MediaQuery.of(context).size.width / 390,
@@ -181,13 +214,10 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
                       'Subscribe',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          color: Colors.white,
-                          fontSize:
-                              28 * MediaQuery.of(context).size.width / 390,
-                          letterSpacing: 1),
+                          color: Colors.white, fontSize: 22, letterSpacing: 1),
                     ),
-                    padding:
-                        EdgeInsets.only(left: 50, right: 50, top: 8, bottom: 8),
+                    padding: EdgeInsets.only(
+                        left: 70, right: 70, top: 10, bottom: 10),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
                       color: Theme.of(context).primaryColor,
@@ -243,15 +273,13 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Center(
                   child: Text(
-                    "After 7 days free trial, payment will be charged \$9.99 USD automatically each month to your Apple ID account unless it is cancelled no later than 24 hours prior to the renewal date. You can cancel automatic renewal or manage your subscription anytime by going to your Account Settings on the App Store.",
+                    "After 3 days free trial, payment will be charged \$9.99 USD automatically each month to your Apple ID account unless it is cancelled no later than 24 hours prior to the renewal date. You can cancel automatic renewal or manage your subscription anytime by going to your Account Settings on the App Store.",
                     textAlign: TextAlign.justify,
                     style: TextStyle(
                       fontFamily: "Poppins",
-                      color: Colors.grey[600],
                       fontSize: ipad
                           ? 11 * MediaQuery.of(context).size.width / 390
                           : 12 * MediaQuery.of(context).size.width / 390,
-                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),

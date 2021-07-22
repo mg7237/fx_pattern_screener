@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fx_screener/models/currency_pair.dart';
-import 'package:fx_screener/widgets/select_asset.dart';
 import 'package:fx_screener/custom_icons/bottom_icons.dart';
 import 'package:fx_screener/widgets/select_sort_fav.dart';
+import 'package:fx_screener/screens/search_asset.dart';
 
 class AddFavorite extends StatefulWidget {
   const AddFavorite({Key? key}) : super(key: key);
@@ -12,12 +12,17 @@ class AddFavorite extends StatefulWidget {
 }
 
 class _AddFavoriteState extends State<AddFavorite> {
-  TextEditingController _searchController = TextEditingController();
   late Map<String, Currency> _ccyData;
   late List<CurrencyPairData> _ccyPairData;
   late List<bool> favorites;
+  Color? grey = Colors.grey[600]; // Color(0xFF868A9A);
 
   void _sortSelected(int index) {}
+
+  void _searchAsset() {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (_) => SearchAsset()));
+  }
 
   void _selectSortBy() {
     showDialog(
@@ -33,18 +38,18 @@ class _AddFavoriteState extends State<AddFavorite> {
     //SelectSort
   }
 
-  void _selectAssetClass() {
-    showDialog(
-        context: context,
-        builder: (_) {
-          return AlertDialog(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(20.0))),
-            elevation: 10,
-            content: SelectAsset(assetSelected: _assetClassSelected),
-          );
-        });
-  }
+  // void _selectAssetClass() {
+  //   showDialog(
+  //       context: context,
+  //       builder: (_) {
+  //         return AlertDialog(
+  //           shape: RoundedRectangleBorder(
+  //               borderRadius: BorderRadius.all(Radius.circular(20.0))),
+  //           elevation: 10,
+  //           content: SelectAsset(assetSelected: _assetClassSelected),
+  //         );
+  //       });
+  // }
 
   void _assetClassSelected(int index) {}
 
@@ -53,7 +58,7 @@ class _AddFavoriteState extends State<AddFavorite> {
     super.initState();
     _ccyData = getCurrencyData();
     _ccyPairData = getCurrencyPairData();
-    favorites = List.filled(_ccyPairData.length, false);
+    favorites = List.filled(_ccyPairData.length, true);
   }
 
   String _truncate(String input) {
@@ -131,10 +136,12 @@ class _AddFavoriteState extends State<AddFavorite> {
                     favorites[listIndex] = !favorites[listIndex];
                   });
                 },
-                icon: Icon(BottomIcons.fi_rr_star,
-                    color: favorites[listIndex]
-                        ? Theme.of(context).primaryColor
-                        : Colors.grey),
+                icon: Icon(
+                    favorites[listIndex]
+                        ? BottomIcons.fi_sr_star
+                        : BottomIcons.fi_rr_star,
+                    color:
+                        favorites[listIndex] ? Colors.green : Colors.grey[600]),
                 iconSize: 30,
               )
             ],
@@ -151,55 +158,28 @@ class _AddFavoriteState extends State<AddFavorite> {
             appBar: AppBar(
               leading: IconButton(
                   icon: Icon(Icons.arrow_back_ios),
-                  color: Colors.black,
+                  color: Colors.grey[600],
                   onPressed: () => Navigator.of(context).pop()),
-              centerTitle: false,
               backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               elevation: 0,
-              title: Container(
-                padding: EdgeInsets.only(left: 50),
-                height: 50,
-                width: 300,
-                child: Center(
-                  child: TextField(
-                    textCapitalization: TextCapitalization.characters,
-                    controller: _searchController,
-                    style: TextStyle(fontFamily: 'Poppins', fontSize: 14),
-                    decoration: InputDecoration(
-                        prefixIcon: Icon(
-                          Icons.search,
-                          color: Colors.black,
-                        ),
-                        contentPadding:
-                            EdgeInsets.symmetric(vertical: 2.0, horizontal: 10),
-                        filled: true,
-                        fillColor: Colors.white,
-                        border: OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(30))),
-                        hintText: 'Search',
-                        hintStyle: TextStyle(
-                            color: Colors.black,
-                            fontFamily: 'Poppins',
-                            fontSize: 12)),
-                  ),
-                ),
-              ),
               actions: [
                 Padding(
                     padding: const EdgeInsets.only(top: 4.0, right: 15),
                     child: IconButton(
-                      color: Colors.black,
+                      color: Colors.grey[600],
                       icon: Icon(BottomIcons.fi_rr_interlining),
                       onPressed: () => _selectSortBy(),
                     )),
-                // IconButton(
-                //     onPressed: _selectAssetClass,
-                //     icon: Icon(
-                //       Icons.filter_alt_outlined,
-                //       color: Colors.black,
-                //     ))
+                Padding(
+                  padding: const EdgeInsets.only(top: 4.0, right: 15),
+                  child: IconButton(
+                      iconSize: 30,
+                      onPressed: _searchAsset,
+                      icon: Icon(
+                        Icons.add,
+                        color: Colors.grey[600],
+                      )),
+                )
               ],
             ),
             body: Container(

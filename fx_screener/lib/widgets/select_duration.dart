@@ -41,24 +41,32 @@ class SelectDuration extends StatelessWidget {
                           durationSelected(index);
                           Navigator.pop(context);
                         },
-                        child: Row(
-                          children: [
-                            Container(
-                              child: Image(
-                                  image: (DURATION_LIST[index] != '1 day')
-                                      ? AssetImage('assets/icons/locked.png')
-                                      : AssetImage(
-                                          'assets/icons/unlocked.png')),
-                              height: 30,
-                              width: 30,
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(DURATION_LIST[index],
-                                style: TextStyle(
-                                    fontSize: 16, fontFamily: 'Poppins')),
-                          ],
+                        child: Container(
+                          width: MediaQuery.of(context).size.width - 30,
+                          height: 30,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Row(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(left: 5),
+                                child: Image(
+                                    image: (DURATION_LIST[index] != '1 day')
+                                        ? AssetImage('assets/icons/locked.png')
+                                        : AssetImage(
+                                            'assets/icons/unlocked.png')),
+                                height: 30,
+                                width: 30,
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text(DURATION_LIST[index],
+                                  style: TextStyle(
+                                      fontSize: 16, fontFamily: 'Poppins')),
+                            ],
+                          ),
                         )),
                   ));
                 },
