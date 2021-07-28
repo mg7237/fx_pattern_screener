@@ -135,63 +135,55 @@ class _ScreenerState extends State<Screener> {
             appBar: PreferredSize(
                 preferredSize: Size.fromHeight(55.0),
                 child: AppBar(
-                  elevation: 0,
-                  backgroundColor: Colors.white,
-                  actions: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 5.0),
-                      child: InkWell(
-                          child: Container(
-                            margin: EdgeInsets.all(14),
-                            child: Text(
-                              DURATION1D,
-                              style: TextStyle(
-                                  color: Colors.grey[600], fontSize: 16),
+                    elevation: 0,
+                    backgroundColor: Colors.white,
+                    actions: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 5.0),
+                        child: InkWell(
+                            child: Container(
+                              margin: EdgeInsets.all(14),
+                              child: Text(
+                                DURATION1D,
+                                style: TextStyle(
+                                    color: Colors.grey[600], fontSize: 16),
+                              ),
                             ),
-                          ),
-                          onTap: () => _selectDuration()),
-                    ),
-                    Padding(
-                        padding: const EdgeInsets.only(top: 5.0, right: 10),
-                        child: IconButton(
-                            onPressed: () => _selectSortBy(),
-                            icon: Icon(
-                              BottomIcons.fi_rr_interlining,
-                              color: Colors.grey[600],
-                            ))),
-                    Padding(
-                        padding: const EdgeInsets.only(top: 5.0, right: 10),
-                        child: IconButton(
-                            onPressed: () => Navigator.of(context).push(
-                                MaterialPageRoute(
-                                    builder: (context) => AddFavorite())),
-                            icon: Icon(
-                              BottomIcons.fi_rr_star,
-                              color: Colors.grey[600],
-                            ))),
-                  ],
-                  leading: IconButton(
-                    icon: Icon(
-                      Icons.menu,
-                      color: Colors.grey[600],
-                      size: 25,
-                    ),
-                    onPressed: () => print(""),
-                  ),
-                )),
-            // leading: Container(
-            //         height: 10,
-            //         width: 30,
-            //         child: Builder(
-            //             builder: (context) => // Ensure Scaffold is in context
-            //                 InkWell(
-            //                     child: Image(
-            //                         image: AssetImage(
-            //                             'assets/icons/menu_grey.png')),
-            //                     onTap: () =>
-            //                         Scaffold.of(context).openDrawer())),
-            //       )),
-            // ),
+                            onTap: () => _selectDuration()),
+                      ),
+                      Padding(
+                          padding: const EdgeInsets.only(top: 5.0, right: 10),
+                          child: IconButton(
+                              onPressed: () => _selectSortBy(),
+                              icon: Icon(
+                                BottomIcons.fi_rr_interlining,
+                                color: Colors.grey[600],
+                              ))),
+                      Padding(
+                          padding: const EdgeInsets.only(top: 5.0, right: 10),
+                          child: IconButton(
+                              onPressed: () => Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                      builder: (context) => AddFavorite())),
+                              icon: Icon(
+                                BottomIcons.fi_rr_star,
+                                color: Colors.grey[600],
+                              ))),
+                    ],
+                    leading: Container(
+                        height: 10,
+                        width: 30,
+                        child: Builder(
+                            builder:
+                                (context) => // Ensure Scaffold is in context
+                                    InkWell(
+                                        child: Icon(
+                                          Icons.menu,
+                                          color: Colors.grey[600],
+                                          size: 25,
+                                        ),
+                                        onTap: () => Scaffold.of(context)
+                                            .openDrawer()))))),
             drawer: AppDrawer(),
             body: Stack(children: [
               Container(

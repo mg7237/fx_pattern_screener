@@ -138,7 +138,7 @@ class _AddFavoriteState extends State<AddFavorite> {
                 },
                 icon: Icon(
                     favorites[listIndex]
-                        ? BottomIcons.fi_sr_star
+                        ? BottomIcons.fi_rr_star
                         : BottomIcons.fi_rr_star,
                     color:
                         favorites[listIndex] ? Colors.green : Colors.grey[600]),
